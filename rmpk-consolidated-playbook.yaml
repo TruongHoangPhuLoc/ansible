@@ -1,0 +1,14 @@
+#Need to adjust the inventory file first
+- hosts: all
+  become: true
+  user: l.truong
+  tasks:
+  - name : remove nginx package
+    package:
+     name:
+#      - "{{apache_package_name}}"
+      - nginx
+     state: absent
+     purge: true
+     update_cache: true
+    

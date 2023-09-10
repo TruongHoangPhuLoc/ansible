@@ -1,0 +1,10 @@
+- hosts: all
+  become: true
+  user: "{{user}}"
+  tasks:
+  - name: update repos
+    apt: update_cache=true
+  - name : remove nginx
+    apt: name=nginx state=absent update_cache=true
+  - name: remove httpd
+    apt: name=httpd state=absent update_cache=true

@@ -1,0 +1,22 @@
+- hosts: centos
+  become: true
+  tasks:
+  - name: update repos on CentOS
+    yum: update_cache= true
+  - name: install nginx on CentOS
+    yum: name=nginx state=latest update_cache=true
+  - name: install httpd on CentOS
+    yum: name=httpd state=latest update_cache=true
+
+
+- hosts: ubuntu
+  become: true
+  user: locthp
+  tasks:
+  - name: update repos on Ubuntu
+    apt: update_cache=true
+  - name : install nginx on Ubuntu
+    apt: name=nginx state=latest update_cache=true
+  - name: install apache2 on Ubuntu
+    yum: name=apache2 state=latest update_cache=true
+

@@ -1,0 +1,35 @@
+
+- hosts: web-svs
+  become: true
+  user: l.truong
+  tasks:
+    - name: install nginx on all hosts
+      package:
+        update_cache: true
+        name:
+         - nginx     
+        state: latest
+
+    - name: start nginx service on CentOS only
+      service:
+        name: nginx
+        state: started
+        enabled: true
+      when: ansible_distribution == 'CentOS'
+
+
+    - name: copy default web page
+      copy:
+        src: default_site.html
+        dest: "{{default_path_page}}/index.html"
+        owner: root
+        group: root
+        mode: 0644
+      register: nginx
+
+    - name: restart service if the sites are modified
+      service:
+        name:
+         - nginx
+        state: restarted 
+      when: nginx.changed

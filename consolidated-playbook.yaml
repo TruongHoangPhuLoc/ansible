@@ -1,0 +1,14 @@
+#Need to adjust the inventory file first
+- hosts: all
+  become: true
+  user: "l.truong"
+  tasks:
+  - name : install nginx
+    package:
+     update_cache: true
+     name:
+#      - "{{apache_package_name}}"
+      - nginx
+     state: latest
+
+    

@@ -1,0 +1,8 @@
+
+- hosts: ubuntu
+  user: locthp
+  become: true
+  tasks:
+  - name: update repos
+    yum: update_cache=true
+

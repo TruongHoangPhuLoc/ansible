@@ -1,0 +1,13 @@
+- hosts: all
+  become: true
+  user: 'l.truong'
+  tasks:
+    - name: remove nginx
+      package:
+        update_cache: true
+        name:
+        - nginx
+        - nginx-full
+        - nginx-common
+        state: absent
+     

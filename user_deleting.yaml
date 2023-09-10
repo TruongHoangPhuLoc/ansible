@@ -1,0 +1,10 @@
+- hosts: all
+  become: true
+  user: 'l.truong'
+  tasks:
+  - name: create user "ansible"
+    user:
+      name: ansible
+      groups: root
+      remove: true
+      state: absent

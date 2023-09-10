@@ -1,0 +1,16 @@
+
+- hosts: ubuntu
+  become: true
+  user: "l.truong"
+  tasks:
+  - name: update repos
+    apt: update_cache=true
+  - name : remove nginx
+    apt:
+      name:
+        - nginx
+        - nginx-full
+        - nginx-common
+      state: absent
+      purge: true
+

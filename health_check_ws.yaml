@@ -1,0 +1,21 @@
+- hosts: workstation
+  become: true
+  user: 'l.truong'
+  tasks:
+    - name: check the health of web_server
+      uri:
+        url: "{{item}}"
+        return_content: yes
+      register: this
+      loop:
+        - http://centos
+        - http://ubuntu
+      
+  
+
+    - name: Show content with loop
+      debug:
+        msg: "{{ item.status }}"
+      loop_control:
+        label: "{{ item.url }}"
+      loop: "{{ this.results }}"
