@@ -1,0 +1,19 @@
+#setting user
+- hosts: all
+  become: true
+  user: 'l.truong'
+  roles:
+  - setup
+
+- hosts: web-svs
+  become: true
+  user: 'l.truong'
+  roles:
+  - web-servers
+
+- hosts: web-svs
+  become: true
+  user: 'l.truong'
+  roles:
+  - administration
+

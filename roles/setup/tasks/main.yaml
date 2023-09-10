@@ -1,0 +1,36 @@
+
+- name: Update the Ubuntu servers to be latest
+  apt:
+    update_cache: true
+    upgrade: full
+  when: ansible_distribution == "Ubuntu"
+
+
+- name: Update the CentOS servers to be latest
+  yum:
+    update_cache: true
+    name: "*"
+    state: latest
+  when: ansible_distribution == "CentOS"
+
+
+- name: create user "ansible"
+  user:
+    name: ansible
+    password: "$6$mysecretsalt$gIIYs0Xgc7sSQkH.zKaz8/AfaMomYzR1QZYtccwmJcUt8VpLq4D055UCCX4MlwgePOP80ZRwhppvBF72RIAVi/"
+    uid: "1010"
+
+- name: add "ansible" user to sudoers
+  copy:
+    src: sudoer_ansible
+    dest: /etc/sudoers.d/ansible
+    owner: root
+    group: root
+    mode: 0400
+
+
+- name: add authorized key to "ansible" user
+  authorized_key:
+    user: "ansible"
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE7VCs9jo31XMhIIB0x6dw8HyuEBwoW18yGCkkr0E1ag l.truong@locthp-lab-srv01"
+

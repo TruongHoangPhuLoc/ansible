@@ -20,4 +20,4 @@
   - name: add authorized key to "ansible" user
     authorized_key:
       user: "ansible"
-      key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDE3r7271O1xFmonAdBe2JsLTDQ0S3+FNvEb4RlDyBtZ/bbXSmTUrL9RKMk5qoMYvd8mjL2s+Sfn+78ZFIQghMylHlpoi5XFELojJODOnLETnWQm4+keoxfo7jHMmVuFEhXHzI8zHhAsU3oiVQQRobEEv43qoVvjB4Jm3HlfyOexbqPv3jN2p0CwqGBY4uQbzo/fp3+7Z+h2I3nKF9IVa7Ha2p6YdwDNjGaDPxMZgSrKYqDS2XFi1hmMYYmWLfMeNxB1fX188NGAK4tOVpN6vGxj+J/G1IN3uvyanqwi+pBNgpVZie/Tw4+DoVdvwRH4U2NcCvfAVrUX2fhyk90subr l.truong@locthp-lab-srv01"
+      key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE7VCs9jo31XMhIIB0x6dw8HyuEBwoW18yGCkkr0E1ag l.truong@locthp-lab-srv01"
