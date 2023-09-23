@@ -1,0 +1,4 @@
+apache_package_name: "httpd" 
+default_path_page: "/usr/share/doc/HTML/"
+distro_name: "CentOS"
+default_template: "default_site.j2"

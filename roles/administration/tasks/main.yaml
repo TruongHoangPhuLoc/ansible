@@ -1,14 +1,9 @@
 - name: copy default web page
-  copy:
-    src: default_site.html
+  template:
+    src: "{{ default_template }}"
     dest: "{{default_path_page}}/index.html"
     owner: root
     group: root
     mode: 0644
-  register: nginx
+  notify: restart_nginx
 
-- name: restart nginx service
-  service:
-    name: nginx
-    state: restarted
-  when: nginx.changed

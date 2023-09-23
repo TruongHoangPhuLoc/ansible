@@ -15,7 +15,7 @@
 
     - name: Show content with loop
       debug:
-        msg: "{{ item.status }}"
+        msg: "{{ item.content }}"
       loop_control:
         label: "{{ item.url }}"
       loop: "{{ this.results }}"

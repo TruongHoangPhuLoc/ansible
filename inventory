@@ -1,5 +1,5 @@
 [web-svs]
-192.168.1.101 apache_package_name=httpd default_path_page=/usr/share/doc/HTML/
-192.168.1.102 apache_package_name=apache2 default_path_page=/var/www/html/
+192.168.1.101
+192.168.1.102
 [workstation]
 192.168.1.100
