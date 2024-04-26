@@ -1,5 +1,5 @@
 - hosts: all
-
+  user: locthp
   become: true
   gather_facts: yes
   tasks:
