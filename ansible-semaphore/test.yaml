@@ -1,8 +1,8 @@
 - hosts: all
 
   become: true
+  gather_facts: yes
   tasks:
-    - name: update apt packages
-      apt:
-        upgrade: yes
-        update_cache: yes
+    - name: Display hostname and IP address
+      debug:
+        msg: "Hostname: {{ ansible_hostname }}, IP Address: {{ ansible_default_ipv4.address }}"
