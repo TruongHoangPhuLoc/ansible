@@ -8,7 +8,7 @@
     register: result
   - name: Process disk usage data
     ansible.builtin.set_fact:
-       processed_output: "{{ result.stdout_lines | map('split', '\t') | map('combine', {'mountpoint': item[0], 'usage_percentage': item[1] | int}) | list }}"
+       processed_output: "{{ result.stdout_lines | map('split', '\t') | map('combine', {'mountpoint': item.0, 'usage_percentage': item.1 | int}) | list }}"
   - name: Print the output of result
     debug:
         msg: "{{ processed_output }}"
