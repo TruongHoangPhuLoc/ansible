@@ -8,7 +8,7 @@
     register: result
   - name: Process disk usage data
     ansible.builtin.set_fact:
-       processed_output: " {{ item | map(split, "\t") }} "
+       processed_output: " {{ item | map('split', '\t') }} "
     with_items: "{{ result.stdout_lines }}"
   - name: Print the output of result
     debug:
