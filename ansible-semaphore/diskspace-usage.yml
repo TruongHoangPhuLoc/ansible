@@ -8,10 +8,11 @@
     register: result
   - name: Process disk usage data
     ansible.builtin.set_fact:
-       processed_output: "{{ result.stdout_lines | map('split', '\t') | list }}"
+       processed_output: "{{ result.stdout_lines | map('split', '\t') | select('lambda x: x[1] | int > 50') | list }}"
   - name: Print the output of result
     debug:
-        msg: "{{ processed_output[0] }}"
+        msg: "{{ processed_output }}"
   #   with_items:
   #        - "{{ result.stdout_lines }}"
   #   where: item
+
