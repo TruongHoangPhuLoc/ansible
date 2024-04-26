@@ -10,8 +10,7 @@
     ansible.builtin.set_fact:
        processed_output: "{{ result.stdout_lines | map('split', '\t') | list }}"
   - name: Print the output of result
-     debug:
-          #Process list of fs' usage here
+    debug:
         msg: "{{ processed_output }}"
   #   with_items:
   #        - "{{ result.stdout_lines }}"
