@@ -1,9 +1,8 @@
 - hosts: all
+
   become: true
-  user: locthp
   tasks:
-  - name: Update the Ubuntu servers to be latest
-    apt:
-      update_cache: true
-      upgrade: full
-    when: ansible_distribution == "Ubuntu"
+    - name: update apt packages
+      apt:
+        upgrade: yes
+        update_cache: yes
