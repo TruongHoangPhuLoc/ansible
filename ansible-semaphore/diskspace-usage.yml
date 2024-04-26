@@ -5,8 +5,7 @@
   - name: Check diskspace usage of host
     shell: df -h | awk 'NR > 1 {print $5}'
     when: ansible_distribution == "Ubuntu"
-  register: result
-  
+    register: result
   - name: Print the output of result
     debug:
-      msg: "{{ result.stdout }}"
+         msg: "{{ result.stdout }}"
