@@ -9,6 +9,9 @@
   - name: Process disk usage data
     ansible.builtin.set_fact:
        processed_output: "{{ result.stdout_lines | map('split', '\t') | map('combine', {'mountpoint': item.0, 'usage_percentage': item.1 | int}) | list }}"
+    loop: "{{ result.stdout_lines }}"
+    loop_control:
+      loop_var: item
   - name: Print the output of result
     debug:
         msg: "{{ processed_output }}"
