@@ -18,7 +18,7 @@
 
   - name: Print the output of result
     debug:
-        msg: "{{ process_output }}"
+        msg: "{{ processed_output }}"
 
   # - name: Send Discord message
   #   uri:
