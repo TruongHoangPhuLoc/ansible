@@ -10,6 +10,6 @@
   # Notify to Discord
   - name: Print the output of result
     debug:
-        msg: "{{ processed_output }}"
+        msg: "{{ item }}"
     with_items:
           - "{{ result.stdout_lines }}"
