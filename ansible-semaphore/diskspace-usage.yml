@@ -13,7 +13,8 @@
   #   with_items:
   #         - "{{ result.stdout_lines }}"
   - name: Process disk usage of each host
-    processed_output: "{{ result.stdout_lines | list }}"
+    ansible.builtin.set_fact:
+       processed_output: "{{ result.stdout_lines | list }}"
 
   - name: Send Discord message
     uri:
