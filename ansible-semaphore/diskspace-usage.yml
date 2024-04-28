@@ -20,12 +20,12 @@
     debug:
         msg: "{{ processed_output }}"
 
-  # - name: Send Discord message
-  #   uri:
-  #     url: "https://discordapp.com/api/webhooks/1234035793492705382/W8-AVHaXkOG2RjAO6ILK8rfibPAGYdDNU7VSBlg5pGtRry14QzKL9qFMARhsd3sLLYLo"
-  #     method: POST
-  #     body_format: json
-  #     body: '{"content": "Disk space on {{ inventory_hostname }} {{ processed_output }} is above 50%!"}'
-  #     headers:
-  #         Content-Type: application/json
-  #     status_code: 204
+  - name: Send Discord message
+    uri:
+      url: "https://discordapp.com/api/webhooks/1234035793492705382/W8-AVHaXkOG2RjAO6ILK8rfibPAGYdDNU7VSBlg5pGtRry14QzKL9qFMARhsd3sLLYLo"
+      method: POST
+      body_format: json
+      body: '{"content": "Disk space {{ processed_output }} is above 50%!"}'
+      headers:
+          Content-Type: application/json
+      status_code: 204
