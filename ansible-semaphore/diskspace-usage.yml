@@ -3,7 +3,7 @@
   become: true
   tasks:
   - name: Check diskspace usage of host
-    shell: df -h | awk 'NR > 1 && $5+0 > 50 {print "fs usage at" " " "\x27" $6 "\x27" " " "is" " " $5}'
+    shell: df -h | awk 'NR > 1 && $5+0 > 10 {print "fs usage at" " " "\x27" $6 "\x27" " " "is" " " $5}'
     when: ansible_distribution == "Ubuntu"
     register: result
 
@@ -22,7 +22,7 @@
       body_format: json
       # body: '{"content": "Disk space on {{ inventory_hostname }} {{ result.stdout_lines }} is above 50%!"}'
       body:
-        content: "Disk space on {{ inventory_hostname }} {{ result.stdout_lines }} is above 50%!"
+        content: "Disk space fs {{ inventory_hostname }} are above 50%! as below {{ result.stdout_lines }} "
       headers:
           Content-Type: application/json
       status_code: 204
