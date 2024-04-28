@@ -3,7 +3,7 @@
   become: true
   tasks:
   - name: Check diskspace usage of host
-    shell: df -h | awk 'NR > 1 && $5+0 > 10 {print "fs usage at" " " "\x27" $6 "\x27" " " "is" " " $5}'
+    shell: df -h | awk 'NR > 1 && $5+0 > 50 {print "fs usage at" " " "\x27" $6 "\x27" " " "is" " " $5}'
     when: ansible_distribution == "Ubuntu"
     register: result
 
