@@ -3,11 +3,10 @@
   become: true
   tasks:
   - name: Check diskspace usage of host
-    shell: df -h | awk 'NR > 1 && $5+0 > 10 {print $6 "\t" $5}'
+    shell: df -h | awk 'NR > 1 && $5+0 > 10 {print 'FS usage at' $6 "\t" 'is' $5}'
     when: ansible_distribution == "Ubuntu"
     register: result
 
-  # Notify to Discord
   - name: Print the output of result
     debug:
         msg: "{{ item }}"
