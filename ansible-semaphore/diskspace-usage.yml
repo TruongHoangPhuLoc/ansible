@@ -13,7 +13,7 @@
 
   - name: Append to message
     ansible.builtin.set_fact:
-        message: "{{ message + item + \n }}"
+        message: "{{ message + item }}"
     loop: "{{ result.stdout_lines }}"
   # - name: Process disk usage of each host
   #   processed_output: "{{ result.stdout_lines | list }}"
