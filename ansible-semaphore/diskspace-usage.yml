@@ -7,11 +7,13 @@
     when: ansible_distribution == "Ubuntu"
     register: result
 
-  - name: Print the output of result
-    debug:
-        msg: "{{ item }}"
-    with_items:
-          - "{{ result.stdout_lines }}"
+  # - name: Print the output of result
+  #   debug:
+  #       msg: "{{ item }}"
+  #   with_items:
+  #         - "{{ result.stdout_lines }}"
+  - name: Process disk usage of each host
+    processed_output: "{{ result.stdout_lines | list }}"
 
   - name: Send Discord message
     uri:
@@ -22,5 +24,3 @@
       headers:
           Content-Type: application/json
       status_code: 204
-    with_items:
-          - "{{ result.stdout_lines }}"
