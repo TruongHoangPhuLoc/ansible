@@ -23,4 +23,5 @@
       headers:
           Content-Type: application/json
       status_code: 204
-      with_items: "{{ result.stdout_lines }}"
+    with_items:
+          - "{{ result.stdout_lines }}"
