@@ -24,10 +24,10 @@
         message: [] 
   - name: Append introduction into the message
     ansible.builtin.set_fact:
-        message:  {{ message + [introduction] }}  
+        message: " {{ message + [introduction] }} " 
   - name: Append to message
     ansible.builtin.set_fact:
-        message: {{ message + [item + '\n'] }}
+        message: "{{ message + [item|string + '\n'] }}"
     loop: "{{ result.stdout_lines }}"
 
   # - name: Finish message
