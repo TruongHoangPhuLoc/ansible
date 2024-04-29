@@ -27,7 +27,7 @@
         message: " {{ message + [introduction] }} " 
   - name: Append to message
     ansible.builtin.set_fact:
-        message: "{{ message + [item] + '\n' }}"
+        message: "{{ message + [item + '\n'] }}"
     loop: "{{ result.stdout_lines }}"
 
   # - name: Finish message
