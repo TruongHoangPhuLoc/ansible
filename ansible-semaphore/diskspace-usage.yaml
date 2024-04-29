@@ -6,6 +6,9 @@
     shell: df -h | awk 'NR > 1 && $5+0 > 10 {print "fs usage at" " " "\x27" $6 "\x27" " " "is" " " $5}'
     when: ansible_distribution == "Ubuntu"
     register: result
+  - name: Start the message
+    ansible.builtin.set_fact:
+        message: "-------------------------------------------------------------------------"   
 
   - name: Prepare body's content for each host
     ansible.builtin.set_fact:
@@ -17,6 +20,9 @@
     loop: "{{ result.stdout_lines }}"
   # - name: Process disk usage of each host
   #   processed_output: "{{ result.stdout_lines | list }}"
+  - name: Finish message
+    ansible.builtin.set_fact:
+        message: "-------------------------------------------------------------------------"  
 
   - name: Print out the message
     debug:
