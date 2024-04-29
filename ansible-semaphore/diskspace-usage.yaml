@@ -22,7 +22,7 @@
     processed_output: "{{ result.stdout_lines | list }}"
   - name: Finish message
     ansible.builtin.set_fact:
-        message: " {{ message + '-------------------------------------------------------------------------' }} ""
+        message: " {{ message + ------------------------------------------------------------------------- }} "
 
   - name: Print out the message
     debug:
