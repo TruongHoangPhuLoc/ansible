@@ -21,17 +21,14 @@
   
   - name: Initialize message
     ansible.builtin.set_fact:
-      message: []
-
+        message: [] 
   - name: Append introduction into the message
     ansible.builtin.set_fact:
-      message: "{{ message + [introduction] }}"
-
+        message: " {{ message + [introduction] }} " 
   - name: Append to message
     ansible.builtin.set_fact:
-      message: "{{ message + [item] }}"
+        message: "{{ message + [item] }}"
     loop: "{{ result.stdout_lines }}"
-
 
   # - name: Finish message
   #   ansible.builtin.set_fact:
