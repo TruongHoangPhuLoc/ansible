@@ -58,7 +58,8 @@
       body_format: json
       # body: '{"content": "Disk space on {{ inventory_hostname }} {{ result.stdout_lines }} is above 50%!"}'
       body:
-        content: "{{ message }}"
+        content: "{{ item }}"
       headers:
           Content-Type: application/json
       status_code: 204
+    loop: "{{ message }}"
