@@ -7,36 +7,22 @@
     shell: df -h | awk 'NR > 1 && $5+0 > 80 {print "fs usage at" " " "\x27" $6 "\x27" " " "is" " " $5}'
     when: ansible_distribution == "Ubuntu"
     register: result
-  # - name: Start the message
-  #   ansible.builtin.set_fact:
-  #       message: "-------------------------------------------------------------------------"   
-
-
-
 
 
   - name: Prepare body's content for each host
     ansible.builtin.set_fact:
         introduction: "there are filesystems on host {{ inventory_hostname }} which are using above 80% \n"
-
-  
-  # - name: Initialize message
-  #   ansible.builtin.set_fact:
-  #       message: [] 
-  # - name: Append introduction into the message
-  #   ansible.builtin.set_fact:
-  #       message: " {{ message + [introduction] }} " 
-  # - name: Append to message
-  #   ansible.builtin.set_fact:
-  #       message: "{{ message + [item] }}"
-  #   loop: "{{ result.stdout_lines }}"
+    when: result.stdout | default('') | length > 0
 
   - name: Initialize message
     ansible.builtin.set_fact:
       message: []
+    when: result.stdout | default('') | length > 0
+
   - name: Set dashes
     ansible.builtin.set_fact:
         dashes: "-------------------------------------------------------------------------"  
+    when: message is defined
 
   - name: Add upper dashes
     ansible.builtin.set_fact:
@@ -44,20 +30,22 @@
   - name: Append introduction into the message
     ansible.builtin.set_fact:
       message: "{{ message + [introduction] }}"
+    when: message is defined
+
 
   - name: Append to message
     ansible.builtin.set_fact:
       message: "{{ message + [item] }}"
     loop: "{{ result.stdout_lines }}"
-
+    when: message is defined
   - name: Add bottom dashes
     ansible.builtin.set_fact:
       message: "{{ message + [dashes] }}"
-
+    when: message is defined
   - name: Print all messages for debugging
     debug:
-      msg: "Host {{ inventory_hostname }}: {{ item }}"
-    loop: "{{ ansible_play_batch | zip(message) }}"
+      msg: "{{ item }}"
+    loop: "{{ message }}"
 
   - name: Send Discord message
     uri:
@@ -70,4 +58,4 @@
           Content-Type: application/json
       status_code: 204
     loop: "{{ message }}"  
-
+    when: message is defined
