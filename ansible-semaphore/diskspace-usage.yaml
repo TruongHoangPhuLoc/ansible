@@ -27,6 +27,7 @@
   - name: Add upper dashes
     ansible.builtin.set_fact:
       message: "{{ message + [dashes] }}"
+    when: message is defined
   - name: Append introduction into the message
     ansible.builtin.set_fact:
       message: "{{ message + [introduction] }}"
