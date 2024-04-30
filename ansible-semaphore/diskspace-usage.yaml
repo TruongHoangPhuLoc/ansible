@@ -28,6 +28,7 @@
     ansible.builtin.set_fact:
       message: "{{ message + [dashes] }}"
     when: message is defined
+  
   - name: Append introduction into the message
     ansible.builtin.set_fact:
       message: "{{ message + [introduction] }}"
@@ -39,14 +40,12 @@
       message: "{{ message + [item] }}"
     loop: "{{ result.stdout_lines }}"
     when: message is defined
+  
   - name: Add bottom dashes
     ansible.builtin.set_fact:
       message: "{{ message + [dashes] }}"
     when: message is defined
-  - name: Print all messages for debugging
-    debug:
-      msg: "{{ item }}"
-    loop: "{{ message }}"
+
 
   - name: Send Discord message
     uri:
