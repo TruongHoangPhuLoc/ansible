@@ -43,10 +43,6 @@
       message: "{{ message + [item] }}"
     loop: "{{ result.stdout_lines }}"
 
-  # - name: Finish message
-  #   ansible.builtin.set_fact:
-  #       message: "-------------------------------------------------------------------------"  
-
   - name: Print out the message
     debug:
          msg: "{{ inventory_hostname + item }}"
@@ -63,6 +59,9 @@
       headers:
           Content-Type: application/json
       status_code: 204
-    loop: "{{ message }}"
+    loop: "{{ message[item] }}"
+    loop_control:
+      loop_var: item    
     loop_control:
       pause: 1
+
