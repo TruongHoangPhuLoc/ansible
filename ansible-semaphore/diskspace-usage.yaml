@@ -63,3 +63,5 @@
           Content-Type: application/json
       status_code: 204
     loop: "{{ message }}"
+    loop_control:
+      pause: 1
