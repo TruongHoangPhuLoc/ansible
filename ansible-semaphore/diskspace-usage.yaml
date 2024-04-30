@@ -43,10 +43,10 @@
       message: "{{ message + [item] }}"
     loop: "{{ result.stdout_lines }}"
 
-  - name: Print out the message
+  - name: Print all messages for debugging
     debug:
-         msg: "{{ inventory_hostname + item }}"
-    loop: "{{ message }}"
+      msg: "Host {{ inventory_hostname }}: {{ item }}"
+    loop: "{{ ansible_play_batch | zip(message) }}"
 
   - name: Send Discord message
     uri:
