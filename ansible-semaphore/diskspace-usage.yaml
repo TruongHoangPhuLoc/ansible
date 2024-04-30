@@ -34,7 +34,13 @@
   - name: Initialize message
     ansible.builtin.set_fact:
       message: []
+  - name: Set dashes
+    ansible.builtin.set_fact:
+        dashes: "-------------------------------------------------------------------------"  
 
+  - name: Add upper dashes
+    ansible.builtin.set_fact:
+      message: "{{ message + [dashes] }}"
   - name: Append introduction into the message
     ansible.builtin.set_fact:
       message: "{{ message + [introduction] }}"
@@ -43,6 +49,10 @@
     ansible.builtin.set_fact:
       message: "{{ message + [item] }}"
     loop: "{{ result.stdout_lines }}"
+
+  - name: Add bottom dashes
+    ansible.builtin.set_fact:
+      message: "{{ message + [dashes] }}"
 
   - name: Print all messages for debugging
     debug:
