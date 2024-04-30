@@ -49,7 +49,8 @@
 
   - name: Print out the message
     debug:
-         msg: "{{ message }}"
+         msg: "{{ inventory_hostname + item }}"
+    loop: "{{ message }}"
 
   - name: Send Discord message
     uri:
