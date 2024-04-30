@@ -1,6 +1,7 @@
 - hosts: all
   user: locthp
   become: true
+  serial: 1
   tasks:
   - name: Check diskspace usage of host
     shell: df -h | awk 'NR > 1 && $5+0 > 10 {print "fs usage at" " " "\x27" $6 "\x27" " " "is" " " $5}'
