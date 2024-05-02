@@ -8,5 +8,4 @@
         msg: "Hostname: {{ ansible_hostname }}, IP Address: {{ ansible_default_ipv4.address }}"
 
     - name: Display envs
-      debug:
-        msg: "{{ test }}"
+      shell: "echo $test"
