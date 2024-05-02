@@ -9,7 +9,7 @@
     register: result
 
 
-  - name: Prepare body's content for each host
+  - name: Prepare body's introductory content for each host
     ansible.builtin.set_fact:
         introduction: "there are filesystems on host {{ inventory_hostname }} which are using above 80% \n"
     when: result.stdout | default('') | length > 0
