@@ -8,7 +8,7 @@
       upgrade: full
     when: ansible_distribution == "Ubuntu"
     notify:
-      - Prepare body's introductory content for each host
+      - Prepare content of message
       - Set dashes
       - Add dashes
       - Send Discord message
