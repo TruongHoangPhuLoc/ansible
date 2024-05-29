@@ -1,0 +1,7 @@
+- hosts: all
+  user: locthp
+  become: true
+  gather_facts: yes
+  tasks:
+    - name: Display envs
+      ansible.builtin.setup:
