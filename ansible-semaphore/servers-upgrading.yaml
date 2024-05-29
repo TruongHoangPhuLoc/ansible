@@ -24,8 +24,8 @@
 
   - name: Prepare body's introductory content for each host
     ansible.builtin.set_fact:
-        notification: "Host {{ inventory_hostname }} has been upgraded successfully \n"
-    when: upgraded is defined
+        notification: "Host {{ ansible_hostname }} has been upgraded successfully \n"
+    when: upgraded.changed
 
   - name: Set dashes
     ansible.builtin.set_fact:
