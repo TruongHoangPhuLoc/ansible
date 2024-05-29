@@ -4,4 +4,5 @@
   gather_facts: yes
   tasks:
     - name: Display envs
-      ansible.builtin.setup:
+      debug:
+          var: ansible_facts
