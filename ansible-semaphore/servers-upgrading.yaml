@@ -41,7 +41,7 @@
 
   - name: Add dashes
     ansible.builtin.set_fact:
-      message: "{{ dashes + \n + notification + dashes + \n  }}"
+      message: "{{ dashes + '\n' + notification + dashes + '\n'  }}"
     when: notification is defined
   - name: Send Discord message
     uri:
