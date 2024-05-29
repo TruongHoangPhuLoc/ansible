@@ -7,8 +7,11 @@
       update_cache: true
       upgrade: full
     when: ansible_distribution == "Ubuntu"
-    register: upgraded
-
+    notify:
+      - Prepare body's introductory content for each host
+      - Set dashes
+      - Add dashes
+      - Send Discord message
 
   - name: Update the CentOS servers to be latest
     yum:
@@ -16,23 +19,27 @@
       name: "*"
       state: latest
     when: ansible_distribution == "CentOS"
-    register: upgraded
+    notify:
+      - Prepare body's introductory content for each host
+      - Set dashes
+      - Add dashes
+      - Send Discord message
 
   - name: Display apt output
     debug:
-        var: upgraded
+        var: result
 
-  - name: Prepare body's introductory content for each host
+  handlers:
+  - name: Prepare content of message
     ansible.builtin.set_fact:
         notification: "Host {{ ansible_hostname }} has been upgraded successfully \n"
-    when: upgraded.changed
 
   - name: Set dashes
     ansible.builtin.set_fact:
         dashes: "-------------------------------------------------------------------------"  
     when: notification is defined
 
-  - name: Add upper dashes
+  - name: Add dashes
     ansible.builtin.set_fact:
       message: "{{ dashes + \n + notification + dashes + \n  }}"
     when: notification is defined
