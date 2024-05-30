@@ -26,10 +26,6 @@
       - Add dashes
       - Send Discord message
 
-  - name: Display apt output
-    debug:
-        var: result
-
   handlers:
   - name: Prepare content of message
     ansible.builtin.set_fact:
