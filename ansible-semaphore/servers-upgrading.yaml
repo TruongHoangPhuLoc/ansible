@@ -8,6 +8,8 @@
       update_cache: true
       upgrade: full
     when: ansible_distribution == "Ubuntu"
+    async: 7200
+    poll: 120
     notify:
       - Prepare content of message
       - Set dashes
