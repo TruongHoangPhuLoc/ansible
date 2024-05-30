@@ -1,6 +1,7 @@
 - hosts: all
   user: locthp
   become: true
+  serial: 1
   tasks:
   - name: Update the Ubuntu servers to be latest
     apt:
