@@ -8,4 +8,4 @@
         msg: "Hostname: {{ ansible_hostname }}, IP Address: {{ ansible_default_ipv4.address }}"
     - name: Check defined env
       debug:
-        msg: ""{{ lookup('env','ANSIBLE_PERSISTENT_CONNECT_TIMEOUT') }} is an environment variable""
+        msg: "{{ lookup('env','ANSIBLE_PERSISTENT_CONNECT_TIMEOUT') }} is an environment variable"
