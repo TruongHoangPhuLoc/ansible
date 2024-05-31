@@ -5,7 +5,8 @@
   - name: Update the Ubuntu servers to be latest
     apt:
       update_cache: true
-      upgrade: full
+      force_apt_get: true
+      upgrade: "yes"
     when: ansible_distribution == "Ubuntu"
     async: 7200
     poll: 5
