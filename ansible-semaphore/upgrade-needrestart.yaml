@@ -6,7 +6,7 @@
     ansible.builtin.replace:
     path: /etc/needrestart/needrestart.conf
     regexp: ^\#\$nrconf{restart} \= \'l\'\;$
-    replace: '$nrconf{restart} = 'l';'
+    replace: $nrconf{restart} = 'l';
 
   - name: Modify "hints on pending kernel upgrades" to printing out to stderror
     ansible.builtin.replace:
