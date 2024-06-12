@@ -4,6 +4,6 @@
   tasks:
   - name: Modify restart mode from interactive to list
     ansible.builtin.replace:
-    path: /etc/needrestart/needrestart.conf
-    regexp: "^\\#\\$nrconf{restart} = \\'i\\'\\;$"
-    replace: "$nrconf{restart} = 'l';"
+      path: /etc/needrestart/needrestart.conf
+      regexp: "^\\#\\$nrconf{restart} = \\'i\\'\\;$"
+      replace: "$nrconf{restart} = 'l';"
