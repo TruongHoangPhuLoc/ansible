@@ -1,0 +1,8 @@
+- hosts: all
+  user: locthp
+  become: true
+  tasks:
+  - name: Backup the ugraded configuration file
+    shell: mv /etc/needrestart/needrestart.conf /etc/needrestart/needrestart.conf.bak.1
+  - name: Restore the configuration file
+    shell: mv /etc/needrestart/needrestart.conf.bak /etc/needrestart/needrestart.conf
