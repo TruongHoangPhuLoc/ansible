@@ -5,7 +5,7 @@
   - name: Modify restart mode from interactive to list
     ansible.builtin.replace:
     path: /etc/needrestart/needrestart.conf
-    regexp: '\\^\\#\\$nrconf{restart} = \\'i\\'\\;\\$'
+    regexp: "\\^\\#\\$nrconf{restart} = \\'i\\'\\;\\$"
     replace: "$nrconf{restart} = 'l';"
 
   - name: Modify "hints on pending kernel upgrades" to printing out to stderror
