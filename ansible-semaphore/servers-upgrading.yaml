@@ -1,6 +1,7 @@
 - hosts: all
   user: locthp
   become: true
+  serial: 1
   tasks:
   - name: Update the Ubuntu servers to be latest
     apt:
@@ -39,9 +40,6 @@
       reboot_timeout: 3600
       test_command: "uptime"
     when: reboot_required_file.stat.exists == true
-    notify:
-      - Check uptime
-      - Print output of uptime
 
   handlers:
   - name: Prepare content of message
@@ -72,7 +70,3 @@
   - name: Check uptime
     shell: "uptime"
     register: uptime
-
-  - name: Print output of uptime
-    debug:
-      msg: "{{ uptime.out }}"
