@@ -1,0 +1,15 @@
+- hosts: all
+  user: locthp
+  become: true
+  tasks:
+  - name: Modify restart mode from interactive to list
+    ansible.builtin.replace:
+    path: /etc/needrestart/needrestart.conf
+    regexp: '^\#\$nrconf{restart} \= \'l\'\;$'
+    replace: '$nrconf{restart} = 'l';'
+
+  - name: Modify "hints on pending kernel upgrades" to printing out to stderror
+    ansible.builtin.replace:
+    path: /etc/needrestart/needrestart.conf
+    regexp: '^\#\$nrconf{kernelhints} \= -1\;$'
+    replace: '$nrconf{kernelhints} = -1;;'
