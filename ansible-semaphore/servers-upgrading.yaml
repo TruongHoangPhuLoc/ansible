@@ -39,6 +39,9 @@
       reboot_timeout: 3600
       test_command: "uptime"
     when: reboot_required_file.stat.exists == true
+    notify:
+      - Check uptime
+      - Print output of uptime
 
   handlers:
   - name: Prepare content of message
@@ -65,3 +68,11 @@
           Content-Type: application/json
       status_code: 204
     when: message is defined
+
+  - name: Check uptime
+    shell: "uptime"
+    register: uptime
+
+  - name: Print output of uptime
+    debug:
+      msg: "{{ uptime.out }}"
