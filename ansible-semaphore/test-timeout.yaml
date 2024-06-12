@@ -1,0 +1,12 @@
+- hosts: all
+  user: locthp
+  become: true  
+  tasks:
+  - name: Simulate long running op (180 sec), wait for up to 240 sec, poll every 1 sec
+    ansible.builtin.command: /bin/sleep 180
+    async: 240
+    poll: 1
+  - name: Print output
+    debug:
+      msg: "Done"
+
