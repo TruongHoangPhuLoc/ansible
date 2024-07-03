@@ -3,37 +3,41 @@
   become: true
   serial: 1
   tasks:
-  - name: Update cache the Ubuntu servers to be latest
-    ansible.builtin.apt:
-      update_cache: true
-      force_apt_get: true
-    when: ansible_distribution == "Ubuntu"
-    async: 7200
-    poll: 5
-  - name: Upgrade the Ubuntu servers to be latest
-    ansible.builtin.apt:
-      force_apt_get: true
-      upgrade: "yes"
-    when: ansible_distribution == "Ubuntu"
-    async: 3600
-    poll: 5
-    notify:
-      - Prepare content of message
-      - Set dashes
-      - Add dashes
-      - Send Discord message
-  # Need to separate Upgrade and Update for CentOS later
-  - name: Update the CentOS servers to be latest
-    yum:
-      update_cache: true
-      name: "*"
-      state: latest
-    when: ansible_distribution == "CentOS"
-    notify:
-      - Prepare content of message
-      - Set dashes
-      - Add dashes
-      - Send Discord message
+  - block:
+    - name: Update cache the Ubuntu servers to be latest
+      ansible.builtin.apt:
+        update_cache: true
+        force_apt_get: true
+      when: ansible_distribution == "Ubuntu"
+      async: 7200
+      poll: 5
+      register: result
+    - name: Upgrade the Ubuntu servers to be latest
+      ansible.builtin.apt:
+        force_apt_get: true
+        upgrade: "yes"
+      when: ansible_distribution == "Ubuntu"
+      register: result
+      async: 3600
+      poll: 5
+      notify:
+        - Prepare content of message
+        - Set dashes
+        - Add dashes
+        - Send Discord message
+    rescue:
+    - name: Update admin when a failure on update/upgrade occurs
+      debug:
+        msg: "{{ ansible_hostname }} {{ result.msg }}"
+      ignore_errors: true
+      # Send a message of error cause
+      notify:
+        - Prepare content of error cause
+        - Set dashes
+        - Add dashes
+        - Send Discord message
+
+
 
   - name: Check if a reboot is required.
     ansible.builtin.stat:
@@ -51,6 +55,9 @@
   - name: Prepare content of message
     ansible.builtin.set_fact:
         notification: "Host {{ ansible_hostname }} has been upgraded successfully \n"
+  - name: Prepare content of error cause
+    ansible.builtin.set_fact:
+        notification: "Host {{ ansible_hostname }}: {{ result.msg }} \n"
 
   - name: Set dashes
     ansible.builtin.set_fact:
