@@ -29,7 +29,6 @@
     - name: Update admin when a failure on update/upgrade occurs
       debug:
         msg: "{{ ansible_hostname }} {{ result.msg }}"
-      ignore_errors: true
       # Dirty trick to run notify :)))
       changed_when: result.msg is defined
       # Send a message of error cause
