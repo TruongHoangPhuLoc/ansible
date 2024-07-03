@@ -2,10 +2,10 @@
   user: locthp
   become: true
   tasks:
-  # - name: simulate error
-  #   shell: ls /test/
-  #   register: command_result
-  #   ignore_errors: true
+  - name: simulate error
+    shell: ls /test/
+    register: command_result
+    ignore_errors: true
   # - name: display error
   #   debug:
   #     msg:  "{{ command_result }}"
@@ -20,17 +20,18 @@
   #   poll: 5
   #   register: command_result
   #   ignore_errors: true
-  - name: Upgrade the Ubuntu servers to be latest
-    ansible.builtin.apt:
-      force_apt_get: true
-      upgrade: "yes"
-    when: ansible_distribution == "Ubuntu"
-    async: 3600
-    poll: 5
-    register: command_result
-    ignore_errors: true
+  # - name: Upgrade the Ubuntu servers to be latest
+  #   ansible.builtin.apt:
+  #     force_apt_get: true
+  #     upgrade: "yes"
+  #   when: ansible_distribution == "Ubuntu"
+  #   async: 3600
+  #   poll: 5
+  #   register: command_result
+  #   ignore_errors: true
 
   
   - name: display error
     debug:
       msg:  "{{ command_result }}"
+    changed_when: command_result.stderr != ""
