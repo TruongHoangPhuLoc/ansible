@@ -17,6 +17,7 @@
         force_apt_get: true
         upgrade: "yes"
       when: ansible_distribution == "Ubuntu"
+      changed_when: true
       register: update_result
       async: 3600
       poll: 5
