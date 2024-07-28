@@ -49,8 +49,9 @@
     register: reboot_result
   - name: Check uptime
     shell: "uptime"
-    register: uptime
+    register: uptime_output
     when: reboot_result.changed
+
   handlers:
   - name: Prepare content of message
     ansible.builtin.set_fact:
@@ -58,10 +59,12 @@
   - name: Prepare content of error cause
     ansible.builtin.set_fact:
         notification: "Host {{ ansible_hostname }}: {{ update_result.msg }} \n"
+
+        
   - name: Add uptime if server reboot
     ansible.builtin.set_fact:
         notification: "{{ notification }} Host {{ ansible_hostname }} has just been rebooted: {{ uptime.stdout }} \n"
-    when: uptime.stdout is defined
+    when: uptime_output is defined
 
   - name: Set dashes
     ansible.builtin.set_fact:
