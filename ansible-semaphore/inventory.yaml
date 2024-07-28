@@ -1,19 +1,5 @@
 [all]
-172.16.1.2
-172.16.1.3
-172.16.1.5
-172.16.1.6
-172.16.1.207
-172.16.1.208
 172.16.1.244
-172.16.1.242
-172.16.1.243
-172.16.1.241
-k8s-master-node-01.internal.locthp.com
-k8s-master-node-02.internal.locthp.com
-k8s-master-node-03.internal.locthp.com
-k8s-worker-node-01.internal.locthp.com
-k8s-worker-node-02.internal.locthp.com
-k8s-worker-node-03.internal.locthp.com
+
 [all:vars]
 ansible_ssh_common_args='-o StrictHostKeyChecking=accept-new'

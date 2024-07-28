@@ -17,55 +17,64 @@
         force_apt_get: true
         upgrade: "yes"
       when: ansible_distribution == "Ubuntu"
-      changed_when: true
       register: update_result
+      changed_when: true
       async: 3600
       poll: 5
-      notify:
-        - Prepare content of message
-        - Set dashes
-        - Add dashes
-        - Add uptime if server reboot
+    - name: Check if a reboot is required.
+      ansible.builtin.stat:
+          path: /var/run/reboot-required
+          get_checksum: no
+      when: ansible_distribution == "Ubuntu"
+      register: reboot_required_file  
+    - name: Reboot the server (if required).
+      ansible.builtin.reboot:
+        reboot_timeout: 3600
+      #when: reboot_required_file.stat.exists == true
+      register: reboot_result
+    - name: Check uptime
+      shell: "uptime"
+      register: uptime_output
+      when: reboot_result.changed
+
+    - name: Prepare content of message
+      ansible.builtin.set_fact:
+          notification: "Host {{ ansible_hostname }} has been upgraded successfully \n"
+      when: update_result.changed
+
+
+    - name: Add uptime if server has been rebooted
+      ansible.builtin.set_fact:
+          notification: "{{ notification }} Host {{ ansible_hostname }} has just been rebooted: {{ uptime_output.stdout }} \n"
+      when: uptime_output is defined and notification is defined
+
+    - name: Set dashes
+      ansible.builtin.set_fact:
+          dashes: "-------------------------------------------------------------------------"  
+      when: notification is defined
+
+    - name: Add dashes
+      ansible.builtin.set_fact:
+        message: "{{ dashes + '\n' + notification + dashes + '\n'  }}"
+      when: notification is defined
     rescue:
     - name: Update admin when a failure on update/upgrade occurs
       debug:
         msg: "{{ ansible_hostname }} {{ update_result.msg }}"
-      # Dirty trick to run notify :)))
-      changed_when: update_result.msg is defined
       # Send a message of error cause
-      notify:
-        - Prepare content of error cause
-        - Set dashes
-        - Add dashes
-  - name: Check if a reboot is required.
-    ansible.builtin.stat:
-        path: /var/run/reboot-required
-        get_checksum: no
-    when: ansible_distribution == "Ubuntu"
-    register: reboot_required_file  
-  - name: Reboot the server (if required).
-    ansible.builtin.reboot:
-      reboot_timeout: 3600
-    when: reboot_required_file.stat.exists == true
-    register: reboot_result
-  - name: Check uptime
-    shell: "uptime"
-    register: uptime_output
-    when: reboot_result.changed
+    - name: Prepare content of error cause
+      ansible.builtin.set_fact:
+          notification: "Failed to update host {{ ansible_hostname }}: {{ update_result.msg }} \n"
+    - name: Set dashes
+      ansible.builtin.set_fact:
+          dashes: "-------------------------------------------------------------------------"  
+      when: notification is defined
 
-  handlers:
-  - name: Prepare content of message
-    ansible.builtin.set_fact:
-        notification: "Host {{ ansible_hostname }} has been upgraded successfully \n"
-  - name: Prepare content of error cause
-    ansible.builtin.set_fact:
-        notification: "Host {{ ansible_hostname }}: {{ update_result.msg }} \n"
+    - name: Add dashes
+      ansible.builtin.set_fact:
+        message: "{{ dashes + '\n' + notification + dashes + '\n'  }}"
+      when: notification is defined
 
-        
-  - name: Add uptime if server reboot
-    ansible.builtin.set_fact:
-        notification: "{{ notification }} Host {{ ansible_hostname }} has just been rebooted: {{ uptime.stdout }} \n"
-    when: hostvar['inventory_hostname']['uptime_output'] is defined
 
   - name: Set dashes
     ansible.builtin.set_fact:
@@ -81,12 +90,20 @@
   tasks:
   - name: Initialize mail message
     ansible.builtin.set_fact:
-      patching_report: "Weekly patching report \n"
+      patching_report: "Weekly Patching Report\n"
   - name: Get all messages from all hosts
     ansible.builtin.set_fact:
       patching_report: "{{ patching_report }} {{ hostvars[item]['message'] }}"
     with_items: " {{ groups['all'] }} "
     when: hostvars[item]['message'] is defined
+
+  - name: Finalize processing message
+    block:
+     - ansible.builtin.set_fact:
+         patching_report: "{{ patching_report }}\nNo Host for patching"
+       when: (patching_report | length) <= ("Weekly Patching Report\n" | length)
+
+
   - name: Update admin's mail with patching report
     community.general.mail:
       host: "{{ lookup('env', 'smtp_host') }}"
@@ -97,5 +114,4 @@
       to: "{{ lookup('env', 'email_recipient') }}"
       subject: Patching report
       body: "{{ patching_report }}"
-
     
