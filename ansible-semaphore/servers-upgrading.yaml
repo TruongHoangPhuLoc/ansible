@@ -65,7 +65,7 @@
   - name: Add uptime if server reboot
     ansible.builtin.set_fact:
         notification: "{{ notification }} Host {{ ansible_hostname }} has just been rebooted: {{ uptime.stdout }} \n"
-    when: uptime_output is defined
+    when: hostvar['inventory_hostname']['uptime_output'] is defined
 
   - name: Set dashes
     ansible.builtin.set_fact:
