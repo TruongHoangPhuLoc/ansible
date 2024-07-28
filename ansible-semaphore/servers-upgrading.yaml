@@ -104,7 +104,7 @@
        when: (patching_report | length) <= ("Weekly Patching Report\n" | length)
 
 
-  - name: Update admin's mail with patching report
+  - name: Update admin with patching report over email
     community.general.mail:
       host: "{{ lookup('env', 'smtp_host') }}"
       port: 587
