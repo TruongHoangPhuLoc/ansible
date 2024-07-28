@@ -85,7 +85,7 @@
     when: hostvars[item]['message'] is defined
   - name: Update admin's mail with patching report
     community.general.mail:
-      host: mail.internal.locthp.com
+      host: "{{ lookup('env', 'smtp_host') }}"
       port: 587
       username: "{{ lookup('env', 'email_user') }}"
       password: "{{ lookup('env', 'email_passwd') }}"
