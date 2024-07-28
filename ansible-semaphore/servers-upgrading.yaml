@@ -11,35 +11,31 @@
       when: ansible_distribution == "Ubuntu"
       async: 7200
       poll: 5
-      register: result
+      register: update_result
     - name: Upgrade the Ubuntu servers to be latest
       ansible.builtin.apt:
         force_apt_get: true
         upgrade: "yes"
       when: ansible_distribution == "Ubuntu"
-      register: result
+      register: update_result
       async: 3600
       poll: 5
       notify:
         - Prepare content of message
         - Set dashes
         - Add dashes
-        - Send Discord message
+        - Add uptime if server reboot
     rescue:
     - name: Update admin when a failure on update/upgrade occurs
       debug:
-        msg: "{{ ansible_hostname }} {{ result.msg }}"
+        msg: "{{ ansible_hostname }} {{ update_result.msg }}"
       # Dirty trick to run notify :)))
-      changed_when: result.msg is defined
+      changed_when: update_result.msg is defined
       # Send a message of error cause
       notify:
         - Prepare content of error cause
         - Set dashes
         - Add dashes
-        - Send Discord message
-
-
-
   - name: Check if a reboot is required.
     ansible.builtin.stat:
         path: /var/run/reboot-required
@@ -49,16 +45,23 @@
   - name: Reboot the server (if required).
     ansible.builtin.reboot:
       reboot_timeout: 3600
-      test_command: "uptime"
     when: reboot_required_file.stat.exists == true
-
+    register: reboot_result
+  - name: Check uptime
+    shell: "uptime"
+    register: uptime
+    when: reboot_result.changed
   handlers:
   - name: Prepare content of message
     ansible.builtin.set_fact:
         notification: "Host {{ ansible_hostname }} has been upgraded successfully \n"
   - name: Prepare content of error cause
     ansible.builtin.set_fact:
-        notification: "Host {{ ansible_hostname }}: {{ result.msg }} \n"
+        notification: "Host {{ ansible_hostname }}: {{ update_result.msg }} \n"
+  - name: Add uptime if server reboot
+    ansible.builtin.set_fact:
+        notification: "{{ notification }} Host {{ ansible_hostname }} has just been rebooted: {{ uptime.stdout }} \n"
+    when: uptime is defined
 
   - name: Set dashes
     ansible.builtin.set_fact:
@@ -69,18 +72,26 @@
     ansible.builtin.set_fact:
       message: "{{ dashes + '\n' + notification + dashes + '\n'  }}"
     when: notification is defined
-  - name: Send Discord message
-    uri:
-      url: "https://discordapp.com/api/webhooks/1234035793492705382/W8-AVHaXkOG2RjAO6ILK8rfibPAGYdDNU7VSBlg5pGtRry14QzKL9qFMARhsd3sLLYLo"
-      method: POST
-      body_format: json
-      body:
-        content: "{{ message }}"
-      headers:
-          Content-Type: application/json
-      status_code: 204
-    when: message is defined
+- hosts: localhost
+  connection: local
+  tasks:
+  - name: Initialize mail message
+    ansible.builtin.set_fact:
+      patching_report: "Weekly patching report \n"
+  - name: Get all messages from all hosts
+    ansible.builtin.set_fact:
+      patching_report: "{{ patching_report }} {{ hostvars[item]['message'] }}"
+    with_items: " {{ groups['all'] }} "
+    when: hostvars[item]['message'] is defined
+  - name: Update admin's mail with patching report
+    community.general.mail:
+      host: mail.internal.locthp.com
+      port: 587
+      username: "{{ lookup('env', 'email_user') }}"
+      password: "{{ lookup('env', 'email_passwd') }}"
+      sender: "{{ lookup('env', 'email_user') }}"
+      to: "{{ lookup('env', 'email_recipient') }}"
+      subject: Patching report
+      body: "{{ patching_report }}"
 
-  - name: Check uptime
-    shell: "uptime"
-    register: uptime
+    
