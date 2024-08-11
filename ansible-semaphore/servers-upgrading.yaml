@@ -18,7 +18,7 @@
         upgrade: "yes"
       when: ansible_distribution == "Ubuntu"
       register: update_result
-      changed_when: true
+      #changed_when: true
       async: 3600
       poll: 5
     - name: Check if a reboot is required.
