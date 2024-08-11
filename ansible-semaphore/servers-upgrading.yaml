@@ -18,7 +18,7 @@
         upgrade: "yes"
       when: ansible_distribution == "Ubuntu"
       register: update_result
-      #changed_when: true
+      changed_when: true
       async: 3600
       poll: 5
     - name: Check if a reboot is required.
@@ -42,7 +42,7 @@
           notification: "Host {{ ansible_hostname }} has been upgraded successfully \n"
       when: update_result.changed
 
-
+    # need to check
     - name: Add uptime if server has been rebooted
       ansible.builtin.set_fact:
           notification: "{{ notification }} Host {{ ansible_hostname }} has just been rebooted: {{ uptime_output.stdout }} \n"
@@ -112,6 +112,6 @@
       password: "{{ lookup('env', 'email_passwd') }}"
       sender: "{{ lookup('env', 'email_user') }}"
       to: "{{ lookup('env', 'email_recipient') }}"
-      subject: Patching report
+      subject: Patching Report
       body: "{{ patching_report }}"
     
