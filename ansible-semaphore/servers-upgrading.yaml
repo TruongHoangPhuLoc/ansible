@@ -46,7 +46,7 @@
     - name: Add uptime if server has been rebooted
       ansible.builtin.set_fact:
           notification: "{{ notification }} Host {{ ansible_hostname }} has just been rebooted: {{ uptime_output.stdout }} \n"
-      when: uptime_output.stdout is defined and notification is defined
+      when: reboot_result.changed and notification is defined
     # - name: Test
     #   debug:
     #     var: vars
