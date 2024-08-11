@@ -50,7 +50,7 @@
     - name: Test
       debug:
         var: vars
-      when:  uptime_output is defined
+      when:  uptime_output.stdout is defined
 
     - name: Set dashes
       ansible.builtin.set_fact:

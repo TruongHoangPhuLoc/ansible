@@ -1,0 +1,2310 @@
+
+ok: [172.16.1.244] => {
+2:55:42 PM
+    "changed": false,
+2:55:42 PM
+    "invocation": {
+2:55:42 PM
+        "module_args": {
+2:55:42 PM
+            "checksum_algorithm": "sha1",
+2:55:42 PM
+            "follow": false,
+2:55:42 PM
+            "get_attributes": true,
+2:55:42 PM
+            "get_checksum": false,
+2:55:42 PM
+            "get_md5": false,
+2:55:42 PM
+            "get_mime": true,
+2:55:42 PM
+            "path": "/var/run/reboot-required"
+2:55:42 PM
+        }
+2:55:42 PM
+    },
+2:55:42 PM
+    "stat": {
+2:55:42 PM
+        "exists": false
+2:55:42 PM
+    }
+2:55:42 PM
+}
+2:55:42 PM
+2:55:42 PM
+TASK [Reboot the server (if required).] ****************************************
+2:55:42 PM
+task path: /tmp/semaphore/repository_1_5/ansible-semaphore/servers-upgrading.yaml:30
+2:55:42 PM
+skipping: [172.16.1.244] => {
+2:55:42 PM
+    "changed": false,
+2:55:42 PM
+    "skip_reason": "Conditional result was False"
+2:55:42 PM
+}
+2:55:42 PM
+2:55:42 PM
+TASK [Check uptime] ************************************************************
+2:55:42 PM
+task path: /tmp/semaphore/repository_1_5/ansible-semaphore/servers-upgrading.yaml:35
+2:55:42 PM
+skipping: [172.16.1.244] => {
+2:55:42 PM
+    "changed": false,
+2:55:42 PM
+    "skip_reason": "Conditional result was False"
+2:55:42 PM
+}
+2:55:42 PM
+2:55:42 PM
+TASK [Prepare content of message] **********************************************
+2:55:42 PM
+task path: /tmp/semaphore/repository_1_5/ansible-semaphore/servers-upgrading.yaml:40
+2:55:42 PM
+ok: [172.16.1.244] => {
+2:55:42 PM
+    "ansible_facts": {
+2:55:42 PM
+        "notification": "Host test-server has been upgraded successfully \n"
+2:55:42 PM
+    },
+2:55:42 PM
+    "changed": false
+2:55:42 PM
+}
+2:55:42 PM
+2:55:42 PM
+TASK [Test] ********************************************************************
+2:55:42 PM
+task path: /tmp/semaphore/repository_1_5/ansible-semaphore/servers-upgrading.yaml:50
+2:55:42 PM
+ok: [172.16.1.244] => {
+2:55:42 PM
+    "vars": {
+2:55:42 PM
+        "ansible_all_ipv4_addresses": [
+2:55:42 PM
+            "169.254.17.206",
+2:55:42 PM
+            "172.16.1.244",
+2:55:42 PM
+            "172.18.0.1",
+2:55:42 PM
+            "172.17.0.1"
+2:55:42 PM
+        ],
+2:55:42 PM
+        "ansible_all_ipv6_addresses": [
+2:55:42 PM
+            "fe80::a823:3fff:fed5:1c76",
+2:55:42 PM
+            "fe80::e001:1ff:fe6f:b2bf",
+2:55:42 PM
+            "fe80::42:d1ff:fe9a:1286"
+2:55:42 PM
+        ],
+2:55:42 PM
+        "ansible_apparmor": {
+2:55:42 PM
+            "status": "enabled"
+2:55:42 PM
+        },
+2:55:42 PM
+        "ansible_architecture": "x86_64",
+2:55:42 PM
+        "ansible_bios_date": "04/01/2014",
+2:55:42 PM
+        "ansible_bios_vendor": "SeaBIOS",
+2:55:42 PM
+        "ansible_bios_version": "rel-1.16.2-0-gea1b7a073390-prebuilt.qemu.org",
+2:55:42 PM
+        "ansible_board_asset_tag": "NA",
+2:55:42 PM
+        "ansible_board_name": "NA",
+2:55:42 PM
+        "ansible_board_serial": "NA",
+2:55:42 PM
+        "ansible_board_vendor": "NA",
+2:55:42 PM
+        "ansible_board_version": "NA",
+2:55:42 PM
+        "ansible_br_cea4d34ca896": {
+2:55:42 PM
+            "active": true,
+2:55:42 PM
+            "device": "br-cea4d34ca896",
+2:55:42 PM
+            "features": {
+2:55:42 PM
+                "esp_hw_offload": "off [fixed]",
+2:55:42 PM
+                "esp_tx_csum_hw_offload": "off [fixed]",
+2:55:42 PM
+                "fcoe_mtu": "off [fixed]",
+2:55:42 PM
+                "generic_receive_offload": "on",
+2:55:42 PM
+                "generic_segmentation_offload": "on",
+2:55:42 PM
+                "highdma": "on",
+2:55:42 PM
+                "hsr_dup_offload": "off [fixed]",
+2:55:42 PM
+                "hsr_fwd_offload": "off [fixed]",
+2:55:42 PM
+                "hsr_tag_ins_offload": "off [fixed]",
+2:55:42 PM
+                "hsr_tag_rm_offload": "off [fixed]",
+2:55:42 PM
+                "hw_tc_offload": "off [fixed]",
+2:55:42 PM
+                "l2_fwd_offload": "off [fixed]",
+2:55:42 PM
+                "large_receive_offload": "off [fixed]",
+2:55:42 PM
+                "loopback": "off [fixed]",
+2:55:42 PM
+                "macsec_hw_offload": "off [fixed]",
+2:55:42 PM
+                "netns_local": "on [fixed]",
+2:55:42 PM
+                "ntuple_filters": "off [fixed]",
+2:55:42 PM
+                "receive_hashing": "off [fixed]",
+2:55:42 PM
+                "rx_all": "off [fixed]",
+2:55:42 PM
+                "rx_checksumming": "off [fixed]",
+2:55:42 PM
+                "rx_fcs": "off [fixed]",
+2:55:42 PM
+                "rx_gro_hw": "off [fixed]",
+2:55:42 PM
+                "rx_gro_list": "off",
+2:55:42 PM
+                "rx_udp_gro_forwarding": "off",
+2:55:42 PM
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+2:55:42 PM
+                "rx_vlan_filter": "off [fixed]",
+2:55:42 PM
+                "rx_vlan_offload": "off [fixed]",
+2:55:42 PM
+                "rx_vlan_stag_filter": "off [fixed]",
+2:55:42 PM
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+2:55:42 PM
+                "scatter_gather": "on",
+2:55:42 PM
+                "tcp_segmentation_offload": "on",
+2:55:42 PM
+                "tls_hw_record": "off [fixed]",
+2:55:42 PM
+                "tls_hw_rx_offload": "off [fixed]",
+2:55:42 PM
+                "tls_hw_tx_offload": "off [fixed]",
+2:55:42 PM
+                "tx_checksum_fcoe_crc": "off [fixed]",
+2:55:42 PM
+                "tx_checksum_ip_generic": "on",
+2:55:42 PM
+                "tx_checksum_ipv4": "off [fixed]",
+2:55:42 PM
+                "tx_checksum_ipv6": "off [fixed]",
+2:55:42 PM
+                "tx_checksum_sctp": "off [fixed]",
+2:55:42 PM
+                "tx_checksumming": "on",
+2:55:42 PM
+                "tx_esp_segmentation": "on",
+2:55:42 PM
+                "tx_fcoe_segmentation": "off [requested on]",
+2:55:42 PM
+                "tx_gre_csum_segmentation": "on",
+2:55:42 PM
+                "tx_gre_segmentation": "on",
+2:55:42 PM
+                "tx_gso_list": "on",
+2:55:42 PM
+                "tx_gso_partial": "on",
+2:55:42 PM
+                "tx_gso_robust": "off [requested on]",
+2:55:42 PM
+                "tx_ipxip4_segmentation": "on",
+2:55:42 PM
+                "tx_ipxip6_segmentation": "on",
+2:55:42 PM
+                "tx_lockless": "on [fixed]",
+2:55:42 PM
+                "tx_nocache_copy": "off",
+2:55:42 PM
+                "tx_scatter_gather": "on",
+2:55:42 PM
+                "tx_scatter_gather_fraglist": "on",
+2:55:42 PM
+                "tx_sctp_segmentation": "on",
+2:55:42 PM
+                "tx_tcp6_segmentation": "on",
+2:55:42 PM
+                "tx_tcp_ecn_segmentation": "on",
+2:55:42 PM
+                "tx_tcp_mangleid_segmentation": "on",
+2:55:42 PM
+                "tx_tcp_segmentation": "on",
+2:55:42 PM
+                "tx_tunnel_remcsum_segmentation": "on",
+2:55:42 PM
+                "tx_udp_segmentation": "on",
+2:55:42 PM
+                "tx_udp_tnl_csum_segmentation": "on",
+2:55:42 PM
+                "tx_udp_tnl_segmentation": "on",
+2:55:42 PM
+                "tx_vlan_offload": "on",
+2:55:42 PM
+                "tx_vlan_stag_hw_insert": "on",
+2:55:42 PM
+                "vlan_challenged": "off [fixed]"
+2:55:42 PM
+            },
+2:55:42 PM
+            "hw_timestamp_filters": [],
+2:55:42 PM
+            "id": "8000.0242d19a1286",
+2:55:42 PM
+            "interfaces": [
+2:55:42 PM
+                "veth111383b",
+2:55:42 PM
+                "veth07f5a2e"
+2:55:42 PM
+            ],
+2:55:42 PM
+            "ipv4": {
+2:55:42 PM
+                "address": "172.18.0.1",
+2:55:42 PM
+                "broadcast": "172.18.255.255",
+2:55:42 PM
+                "netmask": "255.255.0.0",
+2:55:42 PM
+                "network": "172.18.0.0",
+2:55:42 PM
+                "prefix": "16"
+2:55:42 PM
+            },
+2:55:42 PM
+            "ipv6": [
+2:55:42 PM
+                {
+2:55:42 PM
+                    "address": "fe80::42:d1ff:fe9a:1286",
+2:55:42 PM
+                    "prefix": "64",
+2:55:42 PM
+                    "scope": "link"
+2:55:42 PM
+                }
+2:55:42 PM
+            ],
+2:55:42 PM
+            "macaddress": "02:42:d1:9a:12:86",
+2:55:42 PM
+            "mtu": 1500,
+2:55:42 PM
+            "promisc": false,
+2:55:42 PM
+            "speed": 10000,
+2:55:42 PM
+            "stp": false,
+2:55:42 PM
+            "timestamping": [],
+2:55:42 PM
+            "type": "bridge"
+2:55:42 PM
+        },
+2:55:42 PM
+        "ansible_chassis_asset_tag": "NA",
+2:55:42 PM
+        "ansible_chassis_serial": "NA",
+2:55:42 PM
+        "ansible_chassis_vendor": "QEMU",
+2:55:42 PM
+        "ansible_chassis_version": "pc-i440fx-8.1",
+2:55:42 PM
+        "ansible_check_mode": false,
+2:55:42 PM
+        "ansible_cmdline": {
+2:55:42 PM
+            "BOOT_IMAGE": "/vmlinuz-5.15.0-118-generic",
+2:55:42 PM
+            "net.ifnames": "0",
+2:55:42 PM
+            "ro": true,
+2:55:42 PM
+            "root": "/dev/mapper/ubuntu--vg-ubuntu--lv"
+2:55:42 PM
+        },
+2:55:42 PM
+        "ansible_config_file": "/tmp/semaphore/repository_1_5/ansible.cfg",
+2:55:42 PM
+        "ansible_date_time": {
+2:55:42 PM
+            "date": "2024-08-11",
+2:55:42 PM
+            "day": "11",
+2:55:42 PM
+            "epoch": "1723362929",
+2:55:42 PM
+            "epoch_int": "1723362929",
+2:55:42 PM
+            "hour": "07",
+2:55:42 PM
+            "iso8601": "2024-08-11T07:55:29Z",
+2:55:42 PM
+            "iso8601_basic": "20240811T075529107864",
+2:55:42 PM
+            "iso8601_basic_short": "20240811T075529",
+2:55:42 PM
+            "iso8601_micro": "2024-08-11T07:55:29.107864Z",
+2:55:42 PM
+            "minute": "55",
+2:55:42 PM
+            "month": "08",
+2:55:42 PM
+            "second": "29",
+2:55:42 PM
+            "time": "07:55:29",
+2:55:42 PM
+            "tz": "UTC",
+2:55:42 PM
+            "tz_dst": "UTC",
+2:55:42 PM
+            "tz_offset": "+0000",
+2:55:42 PM
+            "weekday": "Sunday",
+2:55:42 PM
+            "weekday_number": "0",
+2:55:42 PM
+            "weeknumber": "32",
+2:55:42 PM
+            "year": "2024"
+2:55:42 PM
+        },
+2:55:42 PM
+        "ansible_default_ipv4": {
+2:55:42 PM
+            "address": "172.16.1.244",
+2:55:42 PM
+            "alias": "eth0",
+2:55:42 PM
+            "broadcast": "172.16.1.255",
+2:55:42 PM
+            "gateway": "172.16.1.1",
+2:55:42 PM
+            "interface": "eth0",
+2:55:42 PM
+            "macaddress": "bc:24:11:8f:93:ca",
+2:55:42 PM
+            "mtu": 1500,
+2:55:42 PM
+            "netmask": "255.255.255.0",
+2:55:42 PM
+            "network": "172.16.1.0",
+2:55:42 PM
+            "prefix": "24",
+2:55:42 PM
+            "type": "ether"
+2:55:42 PM
+        },
+2:55:42 PM
+        "ansible_default_ipv6": {},
+2:55:42 PM
+        "ansible_dependent_role_names": [],
+2:55:42 PM
+        "ansible_device_links": {
+2:55:42 PM
+            "ids": {
+2:55:42 PM
+                "dm-0": [
+2:55:42 PM
+                    "dm-name-ubuntu--vg-ubuntu--lv",
+2:55:42 PM
+                    "dm-uuid-LVM-bCZzcAVuo38yp8aRpofOHfKPfSL3fg5oKVq21GAbfMqTajZuSwhC2qyRfcYx5sDY"
+2:55:42 PM
+                ],
+2:55:42 PM
+                "sda": [
+2:55:42 PM
+                    "scsi-0QEMU_QEMU_HARDDISK_drive-scsi0"
+2:55:42 PM
+                ],
+2:55:42 PM
+                "sda1": [
+2:55:42 PM
+                    "scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-part1"
+2:55:42 PM
+                ],
+2:55:42 PM
+                "sda2": [
+2:55:42 PM
+                    "scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-part2"
+2:55:42 PM
+                ],
+2:55:42 PM
+                "sda3": [
+2:55:42 PM
+                    "lvm-pv-uuid-djjtFc-Lxhl-h8ax-w65g-0SDz-BgPE-bnfKBN",
+2:55:42 PM
+                    "scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-part3"
+2:55:42 PM
+                ],
+2:55:42 PM
+                "sdb": [
+2:55:42 PM
+                    "scsi-0QEMU_QEMU_HARDDISK_drive-scsi1"
+2:55:42 PM
+                ],
+2:55:42 PM
+                "sdb1": [
+2:55:42 PM
+                    "scsi-0QEMU_QEMU_HARDDISK_drive-scsi1-part1"
+2:55:42 PM
+                ],
+2:55:42 PM
+                "sr0": [
+2:55:42 PM
+                    "ata-QEMU_DVD-ROM_QM00003",
+2:55:42 PM
+                    "scsi-0QEMU_QEMU_DVD-ROM_QM00003",
+2:55:42 PM
+                    "scsi-1ATA_QEMU_DVD-ROM_QM00003"
+2:55:42 PM
+                ]
+2:55:42 PM
+            },
+2:55:42 PM
+            "labels": {
+2:55:42 PM
+                "sr0": [
+2:55:42 PM
+                    "Ubuntu-Server\\x2022.04.4\\x20LTS\\x20amd64"
+2:55:42 PM
+                ]
+2:55:42 PM
+            },
+2:55:42 PM
+            "masters": {
+2:55:42 PM
+                "sda3": [
+2:55:42 PM
+                    "dm-0"
+2:55:42 PM
+                ]
+2:55:42 PM
+            },
+2:55:42 PM
+            "uuids": {
+2:55:42 PM
+                "dm-0": [
+2:55:42 PM
+                    "7a51389a-f791-45c6-9dc2-6ced9d2622c4"
+2:55:42 PM
+                ],
+2:55:42 PM
+                "sda2": [
+2:55:42 PM
+                    "58f88a75-c59a-4708-a656-f1daf7be3989"
+2:55:42 PM
+                ],
+2:55:42 PM
+                "sdb1": [
+2:55:42 PM
+                    "9140679f-3bc6-4065-8cae-aa4227a0f915"
+2:55:42 PM
+                ],
+2:55:42 PM
+                "sr0": [
+2:55:42 PM
+                    "2024-02-16-23-52-30-00"
+2:55:42 PM
+                ]
+2:55:42 PM
+            }
+2:55:42 PM
+        },
+2:55:42 PM
+        "ansible_devices": {
+2:55:42 PM
+            "dm-0": {
+2:55:42 PM
+                "holders": [],
+2:55:42 PM
+                "host": "",
+2:55:42 PM
+                "links": {
+2:55:42 PM
+                    "ids": [
+2:55:42 PM
+                        "dm-name-ubuntu--vg-ubuntu--lv",
+2:55:42 PM
+                        "dm-uuid-LVM-bCZzcAVuo38yp8aRpofOHfKPfSL3fg5oKVq21GAbfMqTajZuSwhC2qyRfcYx5sDY"
+2:55:42 PM
+                    ],
+2:55:42 PM
+                    "labels": [],
+2:55:42 PM
+                    "masters": [],
+2:55:42 PM
+                    "uuids": [
+2:55:42 PM
+                        "7a51389a-f791-45c6-9dc2-6ced9d2622c4"
+2:55:42 PM
+                    ]
+2:55:42 PM
+                },
+2:55:42 PM
+                "model": null,
+2:55:42 PM
+                "partitions": {},
+2:55:42 PM
+                "removable": "0",
+2:55:42 PM
+                "rotational": "1",
+2:55:42 PM
+                "sas_address": null,
+2:55:42 PM
+                "sas_device_handle": null,
+2:55:42 PM
+                "scheduler_mode": "",
+2:55:42 PM
+                "sectors": "38215680",
+2:55:42 PM
+                "sectorsize": "512",
+2:55:42 PM
+                "size": "18.22 GB",
+2:55:42 PM
+                "support_discard": "4096",
+2:55:42 PM
+                "vendor": null,
+2:55:42 PM
+                "virtual": 1
+2:55:42 PM
+            },
+2:55:42 PM
+            "loop0": {
+2:55:42 PM
+                "holders": [],
+2:55:42 PM
+                "host": "",
+2:55:42 PM
+                "links": {
+2:55:42 PM
+                    "ids": [],
+2:55:42 PM
+                    "labels": [],
+2:55:42 PM
+                    "masters": [],
+2:55:42 PM
+                    "uuids": []
+2:55:42 PM
+                },
+2:55:42 PM
+                "model": null,
+2:55:42 PM
+                "partitions": {},
+2:55:42 PM
+                "removable": "0",
+2:55:42 PM
+                "rotational": "1",
+2:55:42 PM
+                "sas_address": null,
+2:55:42 PM
+                "sas_device_handle": null,
+2:55:42 PM
+                "scheduler_mode": "none",
+2:55:42 PM
+                "sectors": "79520",
+2:55:42 PM
+                "sectorsize": "512",
+2:55:42 PM
+                "size": "38.83 MB",
+2:55:42 PM
+                "support_discard": "4096",
+2:55:42 PM
+                "vendor": null,
+2:55:42 PM
+                "virtual": 1
+2:55:42 PM
+            },
+2:55:42 PM
+            "loop1": {
+2:55:42 PM
+                "holders": [],
+2:55:42 PM
+                "host": "",
+2:55:42 PM
+                "links": {
+2:55:42 PM
+                    "ids": [],
+2:55:42 PM
+                    "labels": [],
+2:55:42 PM
+                    "masters": [],
+2:55:42 PM
+                    "uuids": []
+2:55:42 PM
+                },
+2:55:42 PM
+                "model": null,
+2:55:42 PM
+                "partitions": {},
+2:55:42 PM
+                "removable": "0",
+2:55:42 PM
+                "rotational": "1",
+2:55:42 PM
+                "sas_address": null,
+2:55:42 PM
+                "sas_device_handle": null,
+2:55:42 PM
+                "scheduler_mode": "none",
+2:55:42 PM
+                "sectors": "178240",
+2:55:42 PM
+                "sectorsize": "512",
+2:55:42 PM
+                "size": "87.03 MB",
+2:55:42 PM
+                "support_discard": "4096",
+2:55:42 PM
+                "vendor": null,
+2:55:42 PM
+                "virtual": 1
+2:55:42 PM
+            },
+2:55:42 PM
+            "loop2": {
+2:55:42 PM
+                "holders": [],
+2:55:42 PM
+                "host": "",
+2:55:42 PM
+                "links": {
+2:55:42 PM
+                    "ids": [],
+2:55:42 PM
+                    "labels": [],
+2:55:42 PM
+                    "masters": [],
+2:55:42 PM
+                    "uuids": []
+2:55:42 PM
+                },
+2:55:42 PM
+                "model": null,
+2:55:42 PM
+                "partitions": {},
+2:55:42 PM
+                "removable": "0",
+2:55:42 PM
+                "rotational": "1",
+2:55:42 PM
+                "sas_address": null,
+2:55:42 PM
+                "sas_device_handle": null,
+2:55:42 PM
+                "scheduler_mode": "none",
+2:55:42 PM
+                "sectors": "178256",
+2:55:42 PM
+                "sectorsize": "512",
+2:55:42 PM
+                "size": "87.04 MB",
+2:55:42 PM
+                "support_discard": "4096",
+2:55:42 PM
+                "vendor": null,
+2:55:42 PM
+                "virtual": 1
+2:55:42 PM
+            },
+2:55:42 PM
+            "loop3": {
+2:55:42 PM
+                "holders": [],
+2:55:42 PM
+                "host": "",
+2:55:42 PM
+                "links": {
+2:55:42 PM
+                    "ids": [],
+2:55:42 PM
+                    "labels": [],
+2:55:42 PM
+                    "masters": [],
+2:55:42 PM
+                    "uuids": []
+2:55:42 PM
+                },
+2:55:42 PM
+                "model": null,
+2:55:42 PM
+                "partitions": {},
+2:55:42 PM
+                "removable": "0",
+2:55:42 PM
+                "rotational": "1",
+2:55:42 PM
+                "sas_address": null,
+2:55:42 PM
+                "sas_device_handle": null,
+2:55:42 PM
+                "scheduler_mode": "none",
+2:55:42 PM
+                "sectors": "79328",
+2:55:42 PM
+                "sectorsize": "512",
+2:55:42 PM
+                "size": "38.73 MB",
+2:55:42 PM
+                "support_discard": "4096",
+2:55:42 PM
+                "vendor": null,
+2:55:42 PM
+                "virtual": 1
+2:55:42 PM
+            },
+2:55:42 PM
+            "loop4": {
+2:55:42 PM
+                "holders": [],
+2:55:42 PM
+                "host": "",
+2:55:42 PM
+                "links": {
+2:55:42 PM
+                    "ids": [],
+2:55:42 PM
+                    "labels": [],
+2:55:42 PM
+                    "masters": [],
+2:55:42 PM
+                    "uuids": []
+2:55:42 PM
+                },
+2:55:42 PM
+                "model": null,
+2:55:42 PM
+                "partitions": {},
+2:55:42 PM
+                "removable": "0",
+2:55:42 PM
+                "rotational": "1",
+2:55:42 PM
+                "sas_address": null,
+2:55:42 PM
+                "sas_device_handle": null,
+2:55:42 PM
+                "scheduler_mode": "none",
+2:55:42 PM
+                "sectors": "130960",
+2:55:42 PM
+                "sectorsize": "512",
+2:55:42 PM
+                "size": "63.95 MB",
+2:55:42 PM
+                "support_discard": "4096",
+2:55:42 PM
+                "vendor": null,
+2:55:42 PM
+                "virtual": 1
+2:55:42 PM
+            },
+2:55:42 PM
+            "loop5": {
+2:55:42 PM
+                "holders": [],
+2:55:42 PM
+                "host": "",
+2:55:42 PM
+                "links": {
+2:55:42 PM
+                    "ids": [],
+2:55:42 PM
+                    "labels": [],
+2:55:42 PM
+                    "masters": [],
+2:55:42 PM
+                    "uuids": []
+2:55:42 PM
+                },
+2:55:42 PM
+                "model": null,
+2:55:42 PM
+                "partitions": {},
+2:55:42 PM
+                "removable": "0",
+2:55:42 PM
+                "rotational": "1",
+2:55:42 PM
+                "sas_address": null,
+2:55:42 PM
+                "sas_device_handle": null,
+2:55:42 PM
+                "scheduler_mode": "none",
+2:55:42 PM
+                "sectors": "130960",
+2:55:42 PM
+                "sectorsize": "512",
+2:55:42 PM
+                "size": "63.95 MB",
+2:55:42 PM
+                "support_discard": "4096",
+2:55:42 PM
+                "vendor": null,
+2:55:42 PM
+                "virtual": 1
+2:55:42 PM
+            },
+2:55:42 PM
+            "loop6": {
+2:55:42 PM
+                "holders": [],
+2:55:42 PM
+                "host": "",
+2:55:42 PM
+                "links": {
+2:55:42 PM
+                    "ids": [],
+2:55:42 PM
+                    "labels": [],
+2:55:42 PM
+                    "masters": [],
+2:55:42 PM
+                    "uuids": []
+2:55:42 PM
+                },
+2:55:42 PM
+                "model": null,
+2:55:42 PM
+                "partitions": {},
+2:55:42 PM
+                "removable": "0",
+2:55:42 PM
+                "rotational": "1",
+2:55:42 PM
+                "sas_address": null,
+2:55:42 PM
+                "sas_device_handle": null,
+2:55:42 PM
+                "scheduler_mode": "none",
+2:55:42 PM
+                "sectors": "0",
+2:55:42 PM
+                "sectorsize": "512",
+2:55:42 PM
+                "size": "0.00 Bytes",
+2:55:42 PM
+                "support_discard": "4096",
+2:55:42 PM
+                "vendor": null,
+2:55:42 PM
+                "virtual": 1
+2:55:42 PM
+            },
+2:55:42 PM
+            "loop7": {
+2:55:42 PM
+                "holders": [],
+2:55:42 PM
+                "host": "",
+2:55:42 PM
+                "links": {
+2:55:42 PM
+                    "ids": [],
+2:55:42 PM
+                    "labels": [],
+2:55:42 PM
+                    "masters": [],
+2:55:42 PM
+                    "uuids": []
+2:55:42 PM
+                },
+2:55:42 PM
+                "model": null,
+2:55:42 PM
+                "partitions": {},
+2:55:42 PM
+                "removable": "0",
+2:55:42 PM
+                "rotational": "1",
+2:55:42 PM
+                "sas_address": null,
+2:55:42 PM
+                "sas_device_handle": null,
+2:55:42 PM
+                "scheduler_mode": "none",
+2:55:42 PM
+                "sectors": "0",
+2:55:42 PM
+                "sectorsize": "512",
+2:55:42 PM
+                "size": "0.00 Bytes",
+2:55:42 PM
+                "support_discard": "0",
+2:55:42 PM
+                "vendor": null,
+2:55:42 PM
+                "virtual": 1
+2:55:42 PM
+            },
+2:55:42 PM
+            "sda": {
+2:55:42 PM
+                "holders": [],
+2:55:42 PM
+                "host": "SCSI storage controller: Red Hat, Inc. Virtio SCSI",
+2:55:42 PM
+                "links": {
+2:55:42 PM
+                    "ids": [
+2:55:42 PM
+                        "scsi-0QEMU_QEMU_HARDDISK_drive-scsi0"
+2:55:42 PM
+                    ],
+2:55:42 PM
+                    "labels": [],
+2:55:42 PM
+                    "masters": [],
+2:55:42 PM
+                    "uuids": []
+2:55:42 PM
+                },
+2:55:42 PM
+                "model": "QEMU HARDDISK",
+2:55:42 PM
+                "partitions": {
+2:55:42 PM
+                    "sda1": {
+2:55:42 PM
+                        "holders": [],
+2:55:42 PM
+                        "links": {
+2:55:42 PM
+                            "ids": [
+2:55:42 PM
+                                "scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-part1"
+2:55:42 PM
+                            ],
+2:55:42 PM
+                            "labels": [],
+2:55:42 PM
+                            "masters": [],
+2:55:42 PM
+                            "uuids": []
+2:55:42 PM
+                        },
+2:55:42 PM
+                        "sectors": "2048",
+2:55:42 PM
+                        "sectorsize": 512,
+2:55:42 PM
+                        "size": "1.00 MB",
+2:55:42 PM
+                        "start": "2048",
+2:55:42 PM
+                        "uuid": null
+2:55:42 PM
+                    },
+2:55:42 PM
+                    "sda2": {
+2:55:42 PM
+                        "holders": [],
+2:55:42 PM
+                        "links": {
+2:55:42 PM
+                            "ids": [
+2:55:42 PM
+                                "scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-part2"
+2:55:42 PM
+                            ],
+2:55:42 PM
+                            "labels": [],
+2:55:42 PM
+                            "masters": [],
+2:55:42 PM
+                            "uuids": [
+2:55:42 PM
+                                "58f88a75-c59a-4708-a656-f1daf7be3989"
+2:55:42 PM
+                            ]
+2:55:42 PM
+                        },
+2:55:42 PM
+                        "sectors": "3715072",
+2:55:42 PM
+                        "sectorsize": 512,
+2:55:42 PM
+                        "size": "1.77 GB",
+2:55:42 PM
+                        "start": "4096",
+2:55:42 PM
+                        "uuid": "58f88a75-c59a-4708-a656-f1daf7be3989"
+2:55:42 PM
+                    },
+2:55:42 PM
+                    "sda3": {
+2:55:42 PM
+                        "holders": [
+2:55:42 PM
+                            "ubuntu--vg-ubuntu--lv"
+2:55:42 PM
+                        ],
+2:55:42 PM
+                        "links": {
+2:55:42 PM
+                            "ids": [
+2:55:42 PM
+                                "lvm-pv-uuid-djjtFc-Lxhl-h8ax-w65g-0SDz-BgPE-bnfKBN",
+2:55:42 PM
+                                "scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-part3"
+2:55:42 PM
+                            ],
+2:55:42 PM
+                            "labels": [],
+2:55:42 PM
+                            "masters": [
+2:55:42 PM
+                                "dm-0"
+2:55:42 PM
+                            ],
+2:55:42 PM
+                            "uuids": []
+2:55:42 PM
+                        },
+2:55:42 PM
+                        "sectors": "38221824",
+2:55:42 PM
+                        "sectorsize": 512,
+2:55:42 PM
+                        "size": "18.23 GB",
+2:55:42 PM
+                        "start": "3719168",
+2:55:42 PM
+                        "uuid": null
+2:55:42 PM
+                    }
+2:55:42 PM
+                },
+2:55:42 PM
+                "removable": "0",
+2:55:42 PM
+                "rotational": "1",
+2:55:42 PM
+                "sas_address": null,
+2:55:42 PM
+                "sas_device_handle": null,
+2:55:42 PM
+                "scheduler_mode": "none",
+2:55:42 PM
+                "sectors": "41943040",
+2:55:42 PM
+                "sectorsize": "512",
+2:55:42 PM
+                "size": "20.00 GB",
+2:55:42 PM
+                "support_discard": "4096",
+2:55:42 PM
+                "vendor": "QEMU",
+2:55:42 PM
+                "virtual": 1
+2:55:42 PM
+            },
+2:55:42 PM
+            "sdb": {
+2:55:42 PM
+                "holders": [],
+2:55:42 PM
+                "host": "SCSI storage controller: Red Hat, Inc. Virtio SCSI",
+2:55:42 PM
+                "links": {
+2:55:42 PM
+                    "ids": [
+2:55:42 PM
+                        "scsi-0QEMU_QEMU_HARDDISK_drive-scsi1"
+2:55:42 PM
+                    ],
+2:55:42 PM
+                    "labels": [],
+2:55:42 PM
+                    "masters": [],
+2:55:42 PM
+                    "uuids": []
+2:55:42 PM
+                },
+2:55:42 PM
+                "model": "QEMU HARDDISK",
+2:55:42 PM
+                "partitions": {
+2:55:42 PM
+                    "sdb1": {
+2:55:42 PM
+                        "holders": [],
+2:55:42 PM
+                        "links": {
+2:55:42 PM
+                            "ids": [
+2:55:42 PM
+                                "scsi-0QEMU_QEMU_HARDDISK_drive-scsi1-part1"
+2:55:42 PM
+                            ],
+2:55:42 PM
+                            "labels": [],
+2:55:42 PM
+                            "masters": [],
+2:55:42 PM
+                            "uuids": [
+2:55:42 PM
+                                "9140679f-3bc6-4065-8cae-aa4227a0f915"
+2:55:42 PM
+                            ]
+2:55:42 PM
+                        },
+2:55:42 PM
+                        "sectors": "104855552",
+2:55:42 PM
+                        "sectorsize": 512,
+2:55:42 PM
+                        "size": "50.00 GB",
+2:55:42 PM
+                        "start": "2048",
+2:55:42 PM
+                        "uuid": "9140679f-3bc6-4065-8cae-aa4227a0f915"
+2:55:42 PM
+                    }
+2:55:42 PM
+                },
+2:55:42 PM
+                "removable": "0",
+2:55:42 PM
+                "rotational": "1",
+2:55:42 PM
+                "sas_address": null,
+2:55:42 PM
+                "sas_device_handle": null,
+2:55:42 PM
+                "scheduler_mode": "none",
+2:55:42 PM
+                "sectors": "104857600",
+2:55:42 PM
+                "sectorsize": "512",
+2:55:42 PM
+                "size": "50.00 GB",
+2:55:42 PM
+                "support_discard": "4096",
+2:55:42 PM
+                "vendor": "QEMU",
+2:55:42 PM
+                "virtual": 1
+2:55:42 PM
+            },
+2:55:42 PM
+            "sr0": {
+2:55:42 PM
+                "holders": [],
+2:55:42 PM
+                "host": "IDE interface: Intel Corporation 82371SB PIIX3 IDE [Natoma/Triton II]",
+2:55:42 PM
+                "links": {
+2:55:42 PM
+                    "ids": [
+2:55:42 PM
+                        "ata-QEMU_DVD-ROM_QM00003",
+2:55:42 PM
+                        "scsi-0QEMU_QEMU_DVD-ROM_QM00003",
+2:55:42 PM
+                        "scsi-1ATA_QEMU_DVD-ROM_QM00003"
+2:55:42 PM
+                    ],
+2:55:42 PM
+                    "labels": [
+2:55:42 PM
+                        "Ubuntu-Server\\x2022.04.4\\x20LTS\\x20amd64"
+2:55:42 PM
+                    ],
+2:55:42 PM
+                    "masters": [],
+2:55:42 PM
+                    "uuids": [
+2:55:42 PM
+                        "2024-02-16-23-52-30-00"
+2:55:42 PM
+                    ]
+2:55:42 PM
+                },
+2:55:42 PM
+                "model": "QEMU DVD-ROM",
+2:55:42 PM
+                "partitions": {},
+2:55:42 PM
+                "removable": "1",
+2:55:42 PM
+                "rotational": "1",
+2:55:42 PM
+                "sas_address": null,
+2:55:42 PM
+                "sas_device_handle": null,
+2:55:42 PM
+                "scheduler_mode": "mq-deadline",
+2:55:42 PM
+                "sectors": "4110172",
+2:55:42 PM
+                "sectorsize": "2048",
+2:55:42 PM
+                "size": "1.96 GB",
+2:55:42 PM
+                "support_discard": "0",
+2:55:42 PM
+                "vendor": "QEMU",
+2:55:42 PM
+                "virtual": 1
+2:55:42 PM
+            }
+2:55:42 PM
+        },
+2:55:42 PM
+        "ansible_diff_mode": false,
+2:55:42 PM
+        "ansible_distribution": "Ubuntu",
+2:55:42 PM
+        "ansible_distribution_file_parsed": true,
+2:55:42 PM
+        "ansible_distribution_file_path": "/etc/os-release",
+2:55:42 PM
+        "ansible_distribution_file_variety": "Debian",
+2:55:42 PM
+        "ansible_distribution_major_version": "22",
+2:55:42 PM
+        "ansible_distribution_release": "jammy",
+2:55:42 PM
+        "ansible_distribution_version": "22.04",
+2:55:42 PM
+        "ansible_dns": {
+2:55:42 PM
+            "nameservers": [
+2:55:42 PM
+                "127.0.0.53"
+2:55:42 PM
+            ],
+2:55:42 PM
+            "options": {
+2:55:42 PM
+                "edns0": true,
+2:55:42 PM
+                "trust-ad": true
+2:55:42 PM
+            },
+2:55:42 PM
+            "search": [
+2:55:42 PM
+                "internal.locthp.com"
+2:55:42 PM
+            ]
+2:55:42 PM
+        },
+2:55:42 PM
+        "ansible_docker0": {
+2:55:42 PM
+            "active": false,
+2:55:42 PM
+            "device": "docker0",
+2:55:42 PM
+            "features": {
+2:55:42 PM
+                "esp_hw_offload": "off [fixed]",
+2:55:42 PM
+                "esp_tx_csum_hw_offload": "off [fixed]",
+2:55:42 PM
+                "fcoe_mtu": "off [fixed]",
+2:55:42 PM
+                "generic_receive_offload": "on",
+2:55:42 PM
+                "generic_segmentation_offload": "on",
+2:55:42 PM
+                "highdma": "on",
+2:55:42 PM
+                "hsr_dup_offload": "off [fixed]",
+2:55:42 PM
+                "hsr_fwd_offload": "off [fixed]",
+2:55:42 PM
+                "hsr_tag_ins_offload": "off [fixed]",
+2:55:42 PM
+                "hsr_tag_rm_offload": "off [fixed]",
+2:55:42 PM
+                "hw_tc_offload": "off [fixed]",
+2:55:42 PM
+                "l2_fwd_offload": "off [fixed]",
+2:55:42 PM
+                "large_receive_offload": "off [fixed]",
+2:55:42 PM
+                "loopback": "off [fixed]",
+2:55:42 PM
+                "macsec_hw_offload": "off [fixed]",
+2:55:42 PM
+                "netns_local": "on [fixed]",
+2:55:42 PM
+                "ntuple_filters": "off [fixed]",
+2:55:42 PM
+                "receive_hashing": "off [fixed]",
+2:55:42 PM
+                "rx_all": "off [fixed]",
+2:55:42 PM
+                "rx_checksumming": "off [fixed]",
+2:55:42 PM
+                "rx_fcs": "off [fixed]",
+2:55:42 PM
+                "rx_gro_hw": "off [fixed]",
+2:55:42 PM
+                "rx_gro_list": "off",
+2:55:42 PM
+                "rx_udp_gro_forwarding": "off",
+2:55:42 PM
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+2:55:42 PM
+                "rx_vlan_filter": "off [fixed]",
+2:55:42 PM
+                "rx_vlan_offload": "off [fixed]",
+2:55:42 PM
+                "rx_vlan_stag_filter": "off [fixed]",
+2:55:42 PM
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+2:55:42 PM
+                "scatter_gather": "on",
+2:55:42 PM
+                "tcp_segmentation_offload": "on",
+2:55:42 PM
+                "tls_hw_record": "off [fixed]",
+2:55:42 PM
+                "tls_hw_rx_offload": "off [fixed]",
+2:55:42 PM
+                "tls_hw_tx_offload": "off [fixed]",
+2:55:42 PM
+                "tx_checksum_fcoe_crc": "off [fixed]",
+2:55:42 PM
+                "tx_checksum_ip_generic": "on",
+2:55:42 PM
+                "tx_checksum_ipv4": "off [fixed]",
+2:55:42 PM
+                "tx_checksum_ipv6": "off [fixed]",
+2:55:42 PM
+                "tx_checksum_sctp": "off [fixed]",
+2:55:42 PM
+                "tx_checksumming": "on",
+2:55:42 PM
+                "tx_esp_segmentation": "on",
+2:55:42 PM
+                "tx_fcoe_segmentation": "on",
+2:55:42 PM
+                "tx_gre_csum_segmentation": "on",
+2:55:42 PM
+                "tx_gre_segmentation": "on",
+2:55:42 PM
+                "tx_gso_list": "on",
+2:55:42 PM
+                "tx_gso_partial": "on",
+2:55:42 PM
+                "tx_gso_robust": "on",
+2:55:42 PM
+                "tx_ipxip4_segmentation": "on",
+2:55:42 PM
+                "tx_ipxip6_segmentation": "on",
+2:55:42 PM
+                "tx_lockless": "on [fixed]",
+2:55:42 PM
+                "tx_nocache_copy": "off",
+2:55:42 PM
+                "tx_scatter_gather": "on",
+2:55:42 PM
+                "tx_scatter_gather_fraglist": "on",
+2:55:42 PM
+                "tx_sctp_segmentation": "on",
+2:55:42 PM
+                "tx_tcp6_segmentation": "on",
+2:55:42 PM
+                "tx_tcp_ecn_segmentation": "on",
+2:55:42 PM
+                "tx_tcp_mangleid_segmentation": "on",
+2:55:42 PM
+                "tx_tcp_segmentation": "on",
+2:55:42 PM
+                "tx_tunnel_remcsum_segmentation": "on",
+2:55:42 PM
+                "tx_udp_segmentation": "on",
+2:55:42 PM
+                "tx_udp_tnl_csum_segmentation": "on",
+2:55:42 PM
+                "tx_udp_tnl_segmentation": "on",
+2:55:42 PM
+                "tx_vlan_offload": "on",
+2:55:42 PM
+                "tx_vlan_stag_hw_insert": "on",
+2:55:42 PM
+                "vlan_challenged": "off [fixed]"
+2:55:42 PM
+            },
+2:55:42 PM
+            "hw_timestamp_filters": [],
+2:55:42 PM
+            "id": "8000.0242a7caa32e",
+2:55:42 PM
+            "interfaces": [],
+2:55:42 PM
+            "ipv4": {
+2:55:42 PM
+                "address": "172.17.0.1",
+2:55:42 PM
+                "broadcast": "172.17.255.255",
+2:55:42 PM
+                "netmask": "255.255.0.0",
+2:55:42 PM
+                "network": "172.17.0.0",
+2:55:42 PM
+                "prefix": "16"
+2:55:42 PM
+            },
+2:55:42 PM
+            "macaddress": "02:42:a7:ca:a3:2e",
+2:55:42 PM
+            "mtu": 1500,
+2:55:42 PM
+            "promisc": false,
+2:55:42 PM
+            "speed": -1,
+2:55:42 PM
+            "stp": false,
+2:55:42 PM
+            "timestamping": [],
+2:55:42 PM
+            "type": "bridge"
+2:55:42 PM
+        },
+2:55:42 PM
+        "ansible_domain": "",
+2:55:42 PM
+        "ansible_effective_group_id": 0,
+2:55:42 PM
+        "ansible_effective_user_id": 0,
+2:55:42 PM
+        "ansible_env": {
+2:55:42 PM
+            "HOME": "/root",
+2:55:42 PM
+            "LANG": "en_US.UTF-8",
+2:55:42 PM
+            "LOGNAME": "root",
+2:55:42 PM
+            "MAIL": "/var/mail/root",
+2:55:42 PM
+            "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin",
+2:55:42 PM
+            "PWD": "/home/locthp",
+2:55:42 PM
+            "SHELL": "/bin/bash",
+2:55:42 PM
+            "SUDO_COMMAND": "/bin/sh -c echo BECOME-SUCCESS-dnbhaxgynwcggotgteohkrubiyaoncap ; /usr/bin/python3 /home/locthp/.ansible/tmp/ansible-tmp-1723362928.5385482-52898-128805888276993/AnsiballZ_setup.py",
+2:55:42 PM
+            "SUDO_GID": "1000",
+2:55:42 PM
+            "SUDO_UID": "1000",
+2:55:42 PM
+            "SUDO_USER": "locthp",
+2:55:42 PM
+            "TERM": "unknown",
+2:55:42 PM
+            "USER": "root"
+2:55:42 PM
+        },
+2:55:42 PM
+        "ansible_eth0": {
+2:55:42 PM
+            "active": true,
+2:55:42 PM
+            "device": "eth0",
+2:55:42 PM
+            "features": {
+2:55:42 PM
+                "esp_hw_offload": "off [fixed]",
+2:55:42 PM
+                "esp_tx_csum_hw_offload": "off [fixed]",
+2:55:42 PM
+                "fcoe_mtu": "off [fixed]",
+2:55:42 PM
+                "generic_receive_offload": "on",
+2:55:42 PM
+                "generic_segmentation_offload": "on",
+2:55:42 PM
+                "highdma": "on [fixed]",
+2:55:42 PM
+                "hsr_dup_offload": "off [fixed]",
+2:55:42 PM
+                "hsr_fwd_offload": "off [fixed]",
+2:55:42 PM
+                "hsr_tag_ins_offload": "off [fixed]",
+2:55:42 PM
+                "hsr_tag_rm_offload": "off [fixed]",
+2:55:42 PM
+                "hw_tc_offload": "off [fixed]",
+2:55:42 PM
+                "l2_fwd_offload": "off [fixed]",
+2:55:42 PM
+                "large_receive_offload": "off [fixed]",
+2:55:42 PM
+                "loopback": "off [fixed]",
+2:55:42 PM
+                "macsec_hw_offload": "off [fixed]",
+2:55:42 PM
+                "netns_local": "off [fixed]",
+2:55:42 PM
+                "ntuple_filters": "off [fixed]",
+2:55:42 PM
+                "receive_hashing": "off [fixed]",
+2:55:42 PM
+                "rx_all": "off [fixed]",
+2:55:42 PM
+                "rx_checksumming": "on [fixed]",
+2:55:42 PM
+                "rx_fcs": "off [fixed]",
+2:55:42 PM
+                "rx_gro_hw": "on",
+2:55:42 PM
+                "rx_gro_list": "off",
+2:55:42 PM
+                "rx_udp_gro_forwarding": "off",
+2:55:42 PM
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+2:55:42 PM
+                "rx_vlan_filter": "on [fixed]",
+2:55:42 PM
+                "rx_vlan_offload": "off [fixed]",
+2:55:42 PM
+                "rx_vlan_stag_filter": "off [fixed]",
+2:55:42 PM
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+2:55:42 PM
+                "scatter_gather": "on",
+2:55:42 PM
+                "tcp_segmentation_offload": "on",
+2:55:42 PM
+                "tls_hw_record": "off [fixed]",
+2:55:42 PM
+                "tls_hw_rx_offload": "off [fixed]",
+2:55:42 PM
+                "tls_hw_tx_offload": "off [fixed]",
+2:55:42 PM
+                "tx_checksum_fcoe_crc": "off [fixed]",
+2:55:42 PM
+                "tx_checksum_ip_generic": "on",
+2:55:42 PM
+                "tx_checksum_ipv4": "off [fixed]",
+2:55:42 PM
+                "tx_checksum_ipv6": "off [fixed]",
+2:55:42 PM
+                "tx_checksum_sctp": "off [fixed]",
+2:55:42 PM
+                "tx_checksumming": "on",
+2:55:42 PM
+                "tx_esp_segmentation": "off [fixed]",
+2:55:42 PM
+                "tx_fcoe_segmentation": "off [fixed]",
+2:55:42 PM
+                "tx_gre_csum_segmentation": "off [fixed]",
+2:55:42 PM
+                "tx_gre_segmentation": "off [fixed]",
+2:55:42 PM
+                "tx_gso_list": "off [fixed]",
+2:55:42 PM
+                "tx_gso_partial": "off [fixed]",
+2:55:42 PM
+                "tx_gso_robust": "on [fixed]",
+2:55:42 PM
+                "tx_ipxip4_segmentation": "off [fixed]",
+2:55:42 PM
+                "tx_ipxip6_segmentation": "off [fixed]",
+2:55:42 PM
+                "tx_lockless": "off [fixed]",
+2:55:42 PM
+                "tx_nocache_copy": "off",
+2:55:42 PM
+                "tx_scatter_gather": "on",
+2:55:42 PM
+                "tx_scatter_gather_fraglist": "off [fixed]",
+2:55:42 PM
+                "tx_sctp_segmentation": "off [fixed]",
+2:55:42 PM
+                "tx_tcp6_segmentation": "on",
+2:55:42 PM
+                "tx_tcp_ecn_segmentation": "on",
+2:55:42 PM
+                "tx_tcp_mangleid_segmentation": "off",
+2:55:42 PM
+                "tx_tcp_segmentation": "on",
+2:55:42 PM
+                "tx_tunnel_remcsum_segmentation": "off [fixed]",
+2:55:42 PM
+                "tx_udp_segmentation": "off [fixed]",
+2:55:42 PM
+                "tx_udp_tnl_csum_segmentation": "off [fixed]",
+2:55:42 PM
+                "tx_udp_tnl_segmentation": "off [fixed]",
+2:55:42 PM
+                "tx_vlan_offload": "off [fixed]",
+2:55:42 PM
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+2:55:42 PM
+                "vlan_challenged": "off [fixed]"
+2:55:42 PM
+            },
+2:55:42 PM
+            "hw_timestamp_filters": [],
+2:55:42 PM
+            "ipv4": {
+2:55:42 PM
+                "address": "169.254.17.206",
+2:55:42 PM
+                "broadcast": "",
+2:55:42 PM
+                "netmask": "255.255.0.0",
+2:55:42 PM
+                "network": "169.254.0.0",
+2:55:42 PM
+                "prefix": "16"
+2:55:42 PM
+            },
+2:55:42 PM
+            "ipv4_secondaries": [
+2:55:42 PM
+                {
+2:55:42 PM
+                    "address": "172.16.1.244",
+2:55:42 PM
+                    "broadcast": "172.16.1.255",
+2:55:42 PM
+                    "netmask": "255.255.255.0",
+2:55:42 PM
+                    "network": "172.16.1.0",
+2:55:42 PM
+                    "prefix": "24"
+2:55:42 PM
+                }
+2:55:42 PM
+            ],
+2:55:42 PM
+            "macaddress": "bc:24:11:8f:93:ca",
+2:55:42 PM
+            "module": "virtio_net",
+2:55:42 PM
+            "mtu": 1500,
+2:55:42 PM
+            "pciid": "virtio2",
+2:55:42 PM
+            "promisc": false,
+2:55:42 PM
+            "speed": -1,
+2:55:42 PM
+            "timestamping": [],
+2:55:42 PM
+            "type": "ether"
+2:55:42 PM
+        },
+2:55:42 PM
+        "ansible_facts": {
+2:55:42 PM
+            "all_ipv4_addresses": [
+2:55:42 PM
+                "169.254.17.206",
+2:55:42 PM
+                "172.16.1.244",
+2:55:42 PM
+                "172.18.0.1",
+2:55:42 PM
+                "172.17.0.1"
+2:55:42 PM
+            ],
+2:55:42 PM
+            "all_ipv6_addresses": [
+2:55:42 PM
+                "fe80::a823:3fff:fed5:1c76",
+2:55:42 PM
+                "fe80::e001:1ff:fe6f:b2bf",
+2:55:42 PM
+                "fe80::42:d1ff:fe9a:1286"
+2:55:42 PM
+            ],
+2:55:42 PM
+            "ansible_local": {},
+2:55:42 PM
+            "apparmor": {
+2:55:42 PM
+                "status": "enabled"
+2:55:42 PM
+            },
+2:55:42 PM
+            "architecture": "x86_64",
+2:55:42 PM
+            "bios_date": "04/01/2014",
+2:55:42 PM
+            "bios_vendor": "SeaBIOS",
+2:55:42 PM
+            "bios_version": "rel-1.16.2-0-gea1b7a073390-prebuilt.qemu.org",
+2:55:42 PM
+            "board_asset_tag": "NA",
+2:55:42 PM
+            "board_name": "NA",
+2:55:42 PM
+            "board_serial": "NA",
+2:55:42 PM
+            "board_vendor": "NA",
+2:55:42 PM
+            "board_version": "NA",
+2:55:42 PM
+            "br_cea4d34ca896": {
+2:55:42 PM
+                "active": true,
+2:55:42 PM
+                "device": "br-cea4d34ca896",
+2:55:42 PM
+                "features": {
+2:55:42 PM
+                    "esp_hw_offload": "off [fixed]",
+2:55:42 PM
+                    "esp_tx_csum_hw_offload": "off [fixed]",
+2:55:42 PM
+                    "fcoe_mtu": "off [fixed]",
+2:55:42 PM
+                    "generic_receive_offload": "on",
+2:55:42 PM
+                    "generic_segmentation_offload": "on",
+2:55:42 PM
+                    "highdma": "on",
+2:55:42 PM
+                    "hsr_dup_offload": "off [fixed]",
+2:55:42 PM
+                    "hsr_fwd_offload": "off [fixed]",
+2:55:42 PM
+                    "hsr_tag_ins_offload": "off [fixed]",
+2:55:42 PM
+                    "hsr_tag_rm_offload": "off [fixed]",
+2:55:42 PM
+                    "hw_tc_offload": "off [fixed]",
+2:55:42 PM
+                    "l2_fwd_offload": "off [fixed]",
+2:55:42 PM
+                    "large_receive_offload": "off [fixed]",
+2:55:42 PM
+                    "loopback": "off [fixed]",
+2:55:42 PM
+                    "macsec_hw_offload": "off [fixed]",
+2:55:42 PM
+                    "netns_local": "on [fixed]",
+2:55:42 PM
+                    "ntuple_filters": "off [fixed]",
+2:55:42 PM
+                    "receive_hashing": "off [fixed]",
+2:55:42 PM
+                    "rx_all": "off [fixed]",
+2:55:42 PM
+                    "rx_checksumming": "off [fixed]",
+2:55:42 PM
+                    "rx_fcs": "off [fixed]",
+2:55:42 PM
+                    "rx_gro_hw": "off [fixed]",
+2:55:42 PM
+                    "rx_gro_list": "off",
+2:55:42 PM
+                    "rx_udp_gro_forwarding": "off",
+2:55:42 PM
+                    "rx_udp_tunnel_port_offload": "off [fixed]",
+2:55:42 PM
+                    "rx_vlan_filter": "off [fixed]",
+2:55:42 PM
+                    "rx_vlan_offload": "off [fixed]",
+2:55:42 PM
+                    "rx_vlan_stag_filter": "off [fixed]",
+2:55:42 PM
+                    "rx_vlan_stag_hw_parse": "off [fixed]",
+2:55:42 PM
+                    "scatter_gather": "on",
+2:55:42 PM
+                    "tcp_segmentation_offload": "on",
+2:55:42 PM
+                    "tls_hw_record": "off [fixed]",
+2:55:42 PM
+                    "tls_hw_rx_offload": "off [fixed]",
+2:55:42 PM
+                    "tls_hw_tx_offload": "off [fixed]",
+2:55:42 PM
+                    "tx_checksum_fcoe_crc": "off [fixed]",
+2:55:42 PM
+                    "tx_checksum_ip_generic": "on",
+2:55:42 PM
+                    "tx_checksum_ipv4": "off [fixed]",
+2:55:42 PM
+                    "tx_checksum_ipv6": "off [fixed]",
+2:55:42 PM
+                    "tx_checksum_sctp": "off [fixed]",
+2:55:42 PM
+                    "tx_checksumming": "on",
+2:55:42 PM
+                    "tx_esp_segmentation": "on",
+2:55:42 PM
+                    "tx_fcoe_segmentation": "off [requested on]",
+2:55:42 PM
+                    "tx_gre_csum_segmentation": "on",
+2:55:42 PM
+                    "tx_gre_segmentation": "on",
+2:55:42 PM
+                    "tx_gso_list": "on",
+2:55:42 PM
+                    "tx_gso_partial": "on",
+2:55:42 PM
+                    "tx_gso_robust": "off [requested on]",
+2:55:42 PM
+                    "tx_ipxip4_segmentation": "on",
+2:55:42 PM
+                    "tx_ipxip6_segmentation": "on",
+2:55:42 PM
+                    "tx_lockless": "on [fixed]",
+2:55:42 PM
+                    "tx_nocache_copy": "off",
+2:55:42 PM
+                    "tx_scatter_gather": "on",
+2:55:42 PM
+                    "tx_scatter_gather_fraglist": "on",
+2:55:42 PM
+                    "tx_sctp_segmentation": "on",
+2:55:42 PM
+                    "tx_tcp6_segmentation": "on",
+2:55:42 PM
+                    "tx_tcp_ecn_segmentation": "on",
+2:55:42 PM
+                    "tx_tcp_mangleid_segmentation": "on",
+2:55:42 PM
+                    "tx_tcp_segmentation": "on",
+2:55:42 PM
+                    "tx_tunnel_remcsum_segmentation": "on",
+2:55:42 PM
+                    "tx_udp_segmentation": "on",
+2:55:42 PM
+                    "tx_udp_tnl_csum_segmentation": "on",
+2:55:42 PM
+                    "tx_udp_tnl_segmentation": "on",
+2:55:42 PM
+                    "tx_vlan_offload": "on",
+2:55:42 PM
+                    "tx_vlan_stag_hw_insert": "on",
+2:55:42 PM
+                    "vlan_challenged": "off [fixed]"
+2:55:42 PM
+                },
+2:55:42 PM
+                "hw_timestamp_filters": [],
+2:55:42 PM
+                "id": "8000.0242d19a1286",
+2:55:42 PM
+                "interfaces": [
+2:55:42 PM
+                    "veth111383b",
+2:55:42 PM
+                    "veth07f5a2e"
+2:55:42 PM
+                ],
+2:55:42 PM
+                "ipv4": {
+2:55:42 PM
+                    "address": "172.18.0.1",
+2:55:42 PM
+                    "broadcast": "172.18.255.255",
+2:55:42 PM
+                    "netmask": "255.255.0.0",
+2:55:42 PM
+                    "network": "172.18.0.0",
+2:55:42 PM
+                    "prefix": "16"
+2:55:42 PM
+                },
+2:55:42 PM
+                "ipv6": [
+2:55:42 PM
+                    {
+2:55:42 PM
+                        "address": "fe80::42:d1ff:fe9a:1286",
+2:55:42 PM
+                        "prefix": "64",
+2:55:42 PM
+                        "scope": "link"
+2:55:42 PM
+                    }
+2:55:42 PM
+                ],
+2:55:42 PM
+                "macaddress": "02:42:d1:9a:12:86",
+2:55:42 PM
+                "mtu": 1500,
+2:55:42 PM
+                "promisc": false,
+2:55:42 PM
+                "speed": 10000,
+2:55:42 PM
+                "stp": false,
+2:55:42 PM
+                "timestamping": [],
+2:55:42 PM
+                "type": "bridge"
+2:55:42 PM
+            },
+2:55:42 PM
+            "chassis_asset_tag": "NA",
+2:55:42 PM
+            "chassis_serial": "NA",
+2:55:42 PM
+            "chassis_vendor": "QEMU",
+2:55:42 PM
+            "chassis_version": "pc-i440fx-8.1",
+2:55:42 PM
+            "cmdline": {
+2:55:42 PM
+                "BOOT_IMAGE": "/vmlinuz-5.15.0-118-generic",
+2:55:42 PM
+                "net.ifnames": "0",
+2:55:42 PM
+                "ro": true,
+2:55:42 PM
+                "root": "/dev/mapper/ubuntu--vg-ubuntu--lv"
+2:55:42 PM
+            },
+2:55:42 PM
+            "date_time": {
+2:55:42 PM
+                "date": "2024-08-11",
+2:55:42 PM
+                "day": "11",
+2:55:42 PM
+                "epoch": "1723362929",
+2:55:42 PM
+                "epoch_int": "1723362929",
+2:55:42 PM
+                "hour": "07",
+2:55:42 PM
+                "iso8601": "2024-08-11T07:55:29Z",
+2:55:42 PM
+                "iso8601_basic": "20240811T075529107864",
+2:55:42 PM
+                "iso8601_basic_short": "20240811T075529",
+2:55:42 PM
+                "iso8601_micro": "2024-08-11T07:55:29.107864Z",
+2:55:42 PM
+                "minute": "55",
+2:55:42 PM
+                "month": "08",
+2:55:42 PM
+                "second": "29",
+2:55:42 PM
+                "time": "07:55:29",
+2:55:42 PM
+                "tz": "UTC",
+2:55:42 PM
+                "tz_dst": "UTC",
+2:55:42 PM
+                "tz_offset": "+0000",
+2:55:42 PM
+                "weekday": "Sunday",
+2:55:42 PM
+                "weekday_number": "0",
+2:55:42 PM
+                "weeknumber": "32",
+2:55:42 PM
+                "year": "2024"
+2:55:42 PM
+            },
+2:55:42 PM
+            "default_ipv4": {
+2:55:42 PM
+                "address": "172.16.1.244",
+2:55:42 PM
+                "alias": "eth0",
+2:55:42 PM
+                "broadcast": "172.16.1.255",
+2:55:42 PM
+                "gateway": "172.16.1.1",
+2:55:42 PM
+                "interface": "eth0",
+2:55:42 PM
+                "macaddress": "bc:24:11:8f:93:ca",
+2:55:42 PM
+                "mtu": 1500,
+2:55:42 PM
+                "netmask": "255.255.255.0",
+2:55:42 PM
+                "network": "172.16.1.0",
+2:55:42 PM
+                "prefix": "24",
+2:55:42 PM
+                "type": "ether"
+2:55:42 PM
+            },
+2:55:42 PM
+            "default_ipv6": {},
+2:55:42 PM
+            "device_links": {
+2:55:42 PM
+                "ids": {
+2:55:42 PM
+                    "dm-0": [
+2:55:42 PM
+                        "dm-name-ubuntu--vg-ubuntu--lv",
+2:55:42 PM
+                        "dm-uuid-LVM-bCZzcAVuo38yp8aRpofOHfKPfSL3fg5oKVq21GAbfMqTajZuSwhC2qyRfcYx5sDY"
+2:55:42 PM
+                    ],
+2:55:42 PM
+                    "sda": [
+2:55:42 PM
+                        "scsi-0QEMU_QEMU_HARDDISK_drive-scsi0"
+2:55:42 PM
+                    ],
+2:55:42 PM
+                    "sda1": [
+2:55:42 PM
+                        "scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-part1"
+2:55:42 PM
+                    ],
+2:55:42 PM
+                    "sda2": [
+2:55:42 PM
+                        "scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-part2"
+2:55:42 PM
+                    ],
+2:55:42 PM
+                    "sda3": [
+2:55:42 PM
+                        "lvm-pv-uuid-djjtFc-Lxhl-h8ax-w65g-0SDz-BgPE-bnfKBN",
+2:55:42 PM
+                        "scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-part3"
+2:55:42 PM
+                    ],
+2:55:42 PM
+                    "sdb": [
+2:55:42 PM
+                        "scsi-0QEMU_QEMU_HARDDISK_drive-scsi1"
+2:55:42 PM
+                    ],
+2:55:42 PM
+                    "sdb1": [
+2:55:42 PM
+                        "scsi-0QEMU_QEMU_HARDDISK_drive-scsi1-part1"
+2:55:42 PM
+                    ],
+2:55:42 PM
+                    "sr0": [
+2:55:42 PM
+                        "ata-QEMU_DVD-ROM_QM00003",
+2:55:42 PM
+                        "scsi-0QEMU_QEMU_DVD-ROM_QM00003",
+2:55:42 PM
+                        "scsi-1ATA_QEMU_DVD-ROM_QM00003"
+2:55:42 PM
+                    ]
+2:55:42 PM
+                },
+2:55:42 PM
+                "labels": {
+2:55:42 PM
+                    "sr0": [
+2:55:42 PM
+                        "Ubuntu-Server\\x2022.04.4\\x20LTS\\x20amd64"
+2:55:42 PM
+                    ]
+2:55:42 PM
+                },
+2:55:42 PM
+                "masters": {
+2:55:42 PM
+                    "sda3": [
+2:55:42 PM
+                        "dm-0"
+2:55:42 PM
+                    ]
+2:55:42 PM
+                },
+2:55:42 PM
+                "uuids": {
+2:55:42 PM
+                    "dm-0": [
+2:55:42 PM
+                        "7a51389a-f791-45c6-9dc2-6ced9d2622c4"
+2:55:42 PM
+                    ],
+2:55:42 PM
+                    "sda2": [
+2:55:42 PM
+                        "58f88a75-c59a-4708-a656-f1daf7be3989"
+2:55:42 PM
+                    ],
+2:55:42 PM
+                    "sdb1": [
+2:55:42 PM
+                        "9140679f-3bc6-4065-8cae-aa4227a0f915"
+2:55:42 PM
+                    ],
+2:55:42 PM
+                    "sr0": [
+2:55:42 PM
+                        "2024-02-16-23-52-30-00"
+2:55:42 PM
+                    ]
+2:55:42 PM
+                }
+2:55:42 PM
+            },
+2:55:42 PM
+            "devices": {
+2:55:42 PM
+                "dm-0": {
+2:55:42 PM
+                    "holders": [],
+2:55:42 PM
+                    "host": "",
+2:55:42 PM
+                    "links": {
+2:55:42 PM
+                        "ids": [
+2:55:42 PM
+                            "dm-name-ubuntu--vg-ubuntu--lv",
+2:55:42 PM
+                            "dm-uuid-LVM-bCZzcAVuo38yp8aRpofOHfKPfSL3fg5oKVq21GAbfMqTajZuSwhC2qyRfcYx5sDY"
+2:55:42 PM
+                        ],
+2:55:42 PM
+                        "labels": [],
+2:55:42 PM
+                        "masters": [],
+2:55:42 PM
+                        "uuids": [
+2:55:42 PM
+                            "7a51389a-f791-45c6-9dc2-6ced9d2622c4"
+2:55:42 PM
+                        ]
+2:55:42 PM
+                    },
+2:55:42 PM
+                    "model": null,
+2:55:42 PM
+                    "partitions": {},
+2:55:42 PM
+                    "removable": "0",
+2:55:42 PM
+                    "rotational": "1",
+2:55:42 PM
+                    "sas_address": null,
+2:55:42 PM
+                    "sas_device_handle": null,
+2:55:42 PM
+                    "scheduler_mode": "",
+2:55:42 PM
+                    "sectors": "38215680",
+2:55:42 PM
+                    "sectorsize": "512",
+2:55:42 PM
+                    "size": "18.22 GB",
+2:55:42 PM
+                    "support_discard": "4096",
+2:55:42 PM
+                    "vendor": null,
+2:55:42 PM
+                    "virtual": 1
+2:55:42 PM
+                },
+2:55:42 PM
+                "loop0": {
+2:55:42 PM
+                    "holders": [],
+2:55:42 PM
+                    "host": "",
+2:55:42 PM
+                    "links": {
+2:55:42 PM
+                        "ids": [],
+2:55:42 PM
+                        "labels": [],
+2:55:42 PM
+                        "masters": [],
+2:55:42 PM
+                        "uuids": []
+2:55:42 PM
+                    },
+2:55:42 PM
+                    "model": null,
+2:55:42 PM
+                    "partitions": {},
+2:55:42 PM
+                    "removable": "0",
+2:55:42 PM
+                    "rotational": "1",
+2:55:42 PM
+                    "sas_address": null,
+2:55:42 PM
+                    "sas_device_handle": null,
+2:55:42 PM
+                    "scheduler_mode": "none",
+2:55:42 PM
+                    "sectors": "79520",
+2:55:42 PM
+                    "sectorsize": "512",
+2:55:42 PM
+                    "size": "38.83 MB",
+2:55:42 PM
+                    "support_discard": "4096",
+2:55:42 PM
+                    "vendor": null,
+2:55:42 PM
+                    "virtual": 1
+2:55:42 PM
+                },
+2:55:42 PM
+                "loop1": {
+2:55:42 PM
+                    "holders": [],
+2:55:42 PM
+                    "host": "",
+2:55:42 PM
+                    "links": {
+2:55:42 PM
+                        "ids": [],
+2:55:42 PM
+                        "labels": [],
+2:55:42 PM
+                        "masters": [],
+2:55:42 PM
+                        "uuids": []
+2:55:42 PM
+                    },
+2:55:42 PM
+                    "model": null,
+2:55:42 PM
+                    "partitions": {},
+2:55:42 PM
+                    "removable": "0",
+2:55:42 PM
+                    "rotational": "1",
+2:55:42 PM
+                    "sas_address": null,
+2:55:42 PM
+                    "sas_device_handle": null,
+2:55:42 PM
+                    "scheduler_mode": "none",
+2:55:42 PM
+                    "sectors": "178240",
