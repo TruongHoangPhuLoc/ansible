@@ -50,6 +50,7 @@
     - name: Test
       debug:
         var: vars
+      wheb:  uptime_output is defined
 
     - name: Set dashes
       ansible.builtin.set_fact:
