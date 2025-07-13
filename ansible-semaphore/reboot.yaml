@@ -1,0 +1,13 @@
+- hosts: all
+  user: locthp
+  become: true
+  serial: 1
+  tasks:
+    - name: Reboot the server.
+      ansible.builtin.reboot:
+        reboot_timeout: 3600
+      register: reboot_result
+    - name: Check uptime
+      shell: "uptime"
+      register: uptime_output
+      when: reboot_result.changed
