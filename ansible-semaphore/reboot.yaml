@@ -1,5 +1,6 @@
 - name: Safely reboot Kubernetes nodes one by one
   hosts: all
+  user: locthp
   serial: 1
   become: yes
   tasks:
