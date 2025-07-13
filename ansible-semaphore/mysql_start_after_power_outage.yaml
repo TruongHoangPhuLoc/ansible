@@ -1,0 +1,17 @@
+- hosts: mysql-members
+  user: locthp
+  become: true
+  gather_facts: yes
+  tasks:
+  - name: Set safe_to_bootstrap to 1 in grastate.dat
+    ansible.builtin.replace:
+      path: /mnt/data/mysql/grastate.dat
+      regexp: '^safe_to_bootstrap: 0'
+      replace: 'safe_to_bootstrap: 1'
+    when: inventory_hostname == "172.16.1.103"
+  - name: Start bootstrap in node 1
+    ansible.builtin.command: "systemctl start mysql@bootstrap.service"
+    when: inventory_hostname == "172.16.1.103"
+  - name: Start mysql in remaining nodes
+    ansible.builtin.command: "systemctl start mysql"
+    when: inventory_hostname != "172.16.1.103"
