@@ -1,12 +1,21 @@
-- hosts: all
-  user: locthp
-  become: true
+- name: Safely reboot Kubernetes nodes one by one
+  hosts: all
   serial: 1
+  become: yes
   tasks:
-    - name: Reboot the server.
-      ansible.builtin.reboot:
-        reboot_timeout: 3600
+    - name: Cordon node
+      command: kubectl cordon {{ inventory_hostname }}
+      delegate_to: 172.16.1.245
+    - name: Drain node
+      command: >
+        kubectl drain {{ inventory_hostname }} --ignore-daemonsets --delete-emptydir-data --force
+      delegate_to: 172.16.1.245
+    - name: Reboot node
+      reboot:
       register: reboot_result
+    - name: Uncordon node
+      command: kubectl uncordon {{ inventory_hostname }}
+      delegate_to: 172.16.1.245
     - name: Check uptime
       shell: "uptime"
       register: uptime_output
